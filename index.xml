@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>https://wlwdada.github.io/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Mar 2023 09:22:53 +0800</lastBuildDate><atom:link href="https://wlwdada.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dada</title>
+      <link>https://wlwdada.github.io/posts/dada/</link>
+      <pubDate>Thu, 23 Mar 2023 09:22:53 +0800</pubDate>
+      
+      <guid>https://wlwdada.github.io/posts/dada/</guid>
+      <description>用时1day+30min&amp;hellip; how are you ? i&amp;rsquo;m fine ,thank you!</description>
+    </item>
+    
+  </channel>
+</rss>
