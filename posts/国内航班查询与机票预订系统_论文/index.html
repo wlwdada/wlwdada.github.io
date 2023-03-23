@@ -1,0 +1,2974 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="金 华 职 业 技 术 学 院
+J I N H U A P O L Y T E C H N I C
+毕业教学环节成果
+（2023届）
+题 目 国内航班查询与机票预定系统设计与实现-后台接口
+学 院 信息工程学院
+专 业 物联网应用技术
+班 级 物联网202
+学 号 202010101590080
+姓 名 洪忠飞
+指导教师 王静
+2023年 1月 1日
+​ 理工类
+金华职业技术学院毕业教学成果
+目 录
+摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; 1
+英文摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 2
+1 系统开发背景&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 3
+1.1 市场现状&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3
+1.2 开发目的&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3
+2 系统分析&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 5">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="" />
+<meta property="og:description" content="金 华 职 业 技 术 学 院
+J I N H U A P O L Y T E C H N I C
+毕业教学环节成果
+（2023届）
+题 目 国内航班查询与机票预定系统设计与实现-后台接口
+学 院 信息工程学院
+专 业 物联网应用技术
+班 级 物联网202
+学 号 202010101590080
+姓 名 洪忠飞
+指导教师 王静
+2023年 1月 1日
+​ 理工类
+金华职业技术学院毕业教学成果
+目 录
+摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; 1
+英文摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 2
+1 系统开发背景&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 3
+1.1 市场现状&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3
+1.2 开发目的&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3
+2 系统分析&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 5" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wlwdada.github.io/posts/%E5%9B%BD%E5%86%85%E8%88%AA%E7%8F%AD%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%9C%BA%E7%A5%A8%E9%A2%84%E8%AE%A2%E7%B3%BB%E7%BB%9F_%E8%AE%BA%E6%96%87/" /><meta property="article:section" content="posts" />
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="金 华 职 业 技 术 学 院
+J I N H U A P O L Y T E C H N I C
+毕业教学环节成果
+（2023届）
+题 目 国内航班查询与机票预定系统设计与实现-后台接口
+学 院 信息工程学院
+专 业 物联网应用技术
+班 级 物联网202
+学 号 202010101590080
+姓 名 洪忠飞
+指导教师 王静
+2023年 1月 1日
+​ 理工类
+金华职业技术学院毕业教学成果
+目 录
+摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; 1
+英文摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 2
+1 系统开发背景&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 3
+1.1 市场现状&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3
+1.2 开发目的&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3
+2 系统分析&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 5">
+
+<meta itemprop="wordCount" content="5407">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="金 华 职 业 技 术 学 院
+J I N H U A P O L Y T E C H N I C
+毕业教学环节成果
+（2023届）
+题 目 国内航班查询与机票预定系统设计与实现-后台接口
+学 院 信息工程学院
+专 业 物联网应用技术
+班 级 物联网202
+学 号 202010101590080
+姓 名 洪忠飞
+指导教师 王静
+2023年 1月 1日
+​ 理工类
+金华职业技术学院毕业教学成果
+目 录
+摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; 1
+英文摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 2
+1 系统开发背景&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 3
+1.1 市场现状&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3
+1.2 开发目的&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3
+2 系统分析&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 5"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1"></h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><img src="" alt="img"><strong>金 华 职 业 技 术 学 院</strong></p>
+<p><strong>J I N H U A  P O L Y T E C H N I C</strong></p>
+<p><strong>毕业教学环节成果</strong></p>
+<p>（2023届）</p>
+<p>题  目 国内航班查询与机票预定系统设计与实现-后台接口</p>
+<p>学  院     信息工程学院</p>
+<p>专  业     物联网应用技术</p>
+<p>班  级     物联网202</p>
+<p>学  号     202010101590080</p>
+<p>姓  名     洪忠飞</p>
+<p>指导教师     王静</p>
+<p>2023年 1月 1日</p>
+<p>​                 理工类</p>
+<p><strong>金华职业技术学院毕业教学成果</strong></p>
+<p><strong>目   录</strong></p>
+<p><a href="#_Toc6713">摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; 1</a></p>
+<p><a href="#_Toc4276">英文摘要&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 2</a></p>
+<p><a href="#_Toc30094">1 系统开发背景&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 3</a></p>
+<p><a href="#_Toc15697">1.1 市场现状&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3</a></p>
+<p><a href="#_Toc21891">1.2 开发目的&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 3</a></p>
+<p><a href="#_Toc1838">2 系统分析&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 5</a></p>
+<p><a href="#_Toc26970">2.1 需求分析&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 5</a></p>
+<p><a href="#_Toc27518">2.2 可行性分析&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; 7</a></p>
+<p><a href="#_Toc141">2.3 开发环境&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 8</a></p>
+<p><a href="#_Toc28316">2.4 成员分工&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 8</a></p>
+<p><a href="#_Toc23980">3 系统设计方案&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; 10</a></p>
+<p><a href="#_Toc25076">3.2 架构设计&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 10</a></p>
+<p><a href="#_Toc10534">3.3 数据库设计&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 11</a></p>
+<p><a href="#_Toc15905">3.4 工程模块划分&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; 15</a></p>
+<p><a href="#_Toc23312">3.5 接口设计&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 15</a></p>
+<p><a href="#_Toc26836">4 功能实现&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 23</a></p>
+<p><a href="#_Toc32673">4.1 登录&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 23</a></p>
+<p><a href="#_Toc30316">4.2 注册&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 24</a></p>
+<p><a href="#_Toc14372">4.3 航班查询&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 25</a></p>
+<p><a href="#_Toc14753">4.4 机票筛选&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 26</a></p>
+<p><a href="#_Toc30318">4.5 舱型选择&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 28</a></p>
+<p><a href="#_Toc31911">4.6 订单填写及增值服务的选择&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; 28</a></p>
+<p><a href="#_Toc29388">4.7  订单查看&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 30</a></p>
+<p><a href="#_Toc31197">4.8 退票&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 31</a></p>
+<p><a href="#_Toc23645">4.9 改签&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 31</a></p>
+<p><a href="#_Toc28982">4.10 升舱&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 32</a></p>
+<p><a href="#_Toc21325">5 系统测试&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 34</a></p>
+<p><a href="#_Toc2576">5.1 测试环境&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 34</a></p>
+<p><a href="#_Toc20961">5.2 测试方法及结果&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 34</a></p>
+<p><a href="#_Toc25308">结论与谢辞&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. 36</a></p>
+<p><a href="#_Toc5866">参考文献&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 37</a></p>
+<p><a href="#_Toc14336">附件：程序清单&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. 38</a></p>
+<p>**
+**</p>
+<p><strong>国内航班查询与机票预定系统设计与实现-后台接口</strong></p>
+<p><strong>信息工程学院物联网应用技术  洪忠飞</strong></p>
+<p>摘要：微服务架构设计并开发一整套航班查询与机票预订业务系统。本产品采用Spring-Cloud微服务架构，该架构将单一应用程序划分成航班服务，订单服务，用户服务，oss对象存储服务，首页广告服务，服务之间通过Feign可以相互调用互相协调、互相配合，每个服务运行在其独立的进程中，服务与服务间采用器轻量级的通信机制互相沟通，本项目采用RESTFUL API接口的方式。每个服务都围绕着具体业务进行构建，并且能够被独立的部署到生产环境、类生产环境等。微服务是一种架构风格，一个大型复杂软件应用由一个或多个微服务组成，极大程度的降低了业务之间的耦合度，降低开发难度，方便后期维护完善。</p>
+<p>**关键字：**航班查询；机票预订；微服务；Spring-Cloud；Feign；restful api</p>
+<p><strong>Domestic flight query and ticket reservation system-Background Interface</strong></p>
+<p><strong>Hong Zhongfei, Application Technology of Internet of Things of InformationEngineering College</strong></p>
+<p>Absrtact:The microservice architecture is designed and developed a complete set of flight query and ticket booking business system. This product adopts the Spring Cloud microservice architecture, which divides a single application into flight service, order service, user service, oss object storage service and homepage advertising service. Services can call each other and coordinate with each other through Feign. Each service runs in its independent process, and services and services use lightweight communication mechanisms to communicate with each other, This project adopts RESTFUL API interface. Each service is built around a specific business and can be independently deployed to a production environment, a production like environment, etc. Microservice is an architectural style. A large complex software application is composed of one or more microservices, which greatly reduces the coupling between businesses, reduces the development difficulty, and facilitates later maintenance and improvement.</p>
+<p><strong>Keyword</strong>:flight query; Air ticket reservation; Micro service; Spring-Cloud； Feign； restful api</p>
+<h1 id="1-系统开发背景">1 系统开发背景</h1>
+<p>航班查询与机票预订是民航业的核心业务场景之一。从中国民航建立计算机售票系统以来，航班查询与机票预订核心业务一直都是在进口的大型主机中实现的。但大型主机昂贵且系统容量有限，无法满足我国民航业快速发展的需求。为此，需要以当前流行的微服务架构重新设计并开发一整套航班查询与机票预订业务系统。</p>
+<h2 id="11-市场现状">1.1 市场现状</h2>
+<p>现在市场上的在线订票系统分为两类，一种是航空公司官方推出的app，另一种是第三方旅游公司整合所有的航空公司发布的航班机票信息app，这两种各有利弊，航空公司官方的价格方面会更加的便宜，会第一时间抢到票等等，但是他只会显现他自家航空公司的发布的航班和机票信息，所以如果该航空公司没有心仪的机票的话还要换不同航空公司来找票，而第三方旅游公司会结合国内所有的航空公司发布的航班机票信息呈现给用户，这样用户就不用跳转app了，但是对应的机票价格以及购票过程并不会第一时间反馈给用户，比如我在航空公司买票，抢到或者没有抢到会立即反馈给用户，但是在第三方旅游公司中抢票会显示抢票中，需要邀请用户或者升级会员实现加速抢票，这虽然是一种盈利方式，但是我作为用户体验感实在是太差了。</p>
+<h2 id="12-开发目的">1.2 开发目的</h2>
+<p>本项目是以更好的用户体验，更全面的航班机票信息为目的开发的一款以微服务架构的国内航班查询与机票预定系统。</p>
+<p>通过对用户在线航班查询与机票预订业务的设计分析，基于当前市场上在线订票平台，进行功能的完善与整合，并且拥有行李备忘录，机场大屏等的出行服务，增加用户订票体验，提高出行效率；在此基础上还有更加完备的航班机票查询筛选功能，包含所有的机票发售信息，用户可以更加清晰的查询到符合自己想法的对应信息。</p>
+<p>除了功能的完备，我们同样对系统的并发进行了设计与处理，本项目采用B/S模式，将程序，数据库等部署到服务器上之后，用户是通过浏览器针对分布于网络上的服务器进行请求访问的，浏览器的请求通过服务器进行对应的服务处理，并将处理结果以及相应的信息返回给用户的浏览器，形成闭环。数据库采用MySql主从结构进行配置，读写分离，提高程序对数据库操作的效率。并且采用gateway网关进行负载均衡，以及Redis进行临时文件的本地存储实现了500人以上并发查询和50人以上并发预订的能力。具体的开发目的如下表1-1所示。</p>
+<p>表1-1 开发目的</p>
+<table>
+<thead>
+<tr>
+<th><img src="" alt="img">  国内航班查询与预定系统</th>
+<th>支持在给定日期、航班号或给定日期、出发地、目的地两种组合模式下的航班查询。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查询结果包含航班的起降时间、剩余座位数、票价。</td>
+<td></td>
+</tr>
+<tr>
+<td>现实需求的条件组合来进行航班查询。</td>
+<td></td>
+</tr>
+<tr>
+<td>支持对给定日期、航班机票的预订及预订后的机票改期退票功能。</td>
+<td></td>
+</tr>
+<tr>
+<td>具备基本的座位库存控制能力，能正确处理多人并发预订机票时的库存扣减事务。</td>
+<td></td>
+</tr>
+<tr>
+<td>系统以B/S架构实现，其中服务器端应当根据功能及架构的设计，划分为多个微服务来实现，各个微服务应当有明确的功能边界。</td>
+<td></td>
+</tr>
+<tr>
+<td>系统具备对自身运行状况的监控及报警能力，并提供相应的可视化界面。</td>
+<td></td>
+</tr>
+<tr>
+<td>系统支持500人以上并发查询和50人以上并发预订的能力，且在此场景下单次查询或预订的响应时间都应当在1秒以内。</td>
+<td></td>
+</tr>
+<tr>
+<td>系统具备在访问量超过系统容量时对请求的限流能力和对异常微服务的熔断能力</td>
+<td></td>
+</tr>
+<tr>
+<td>程序能在Kubernetes平台上运行。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="2-系统分析">2 系统分析</h1>
+<p>系统需求分析就是对国能航班查询与预定系统进行了详细的需求分析，包括系统功能，以及实施之前的可行性的非功能需求分析。</p>
+<h2 id="21-需求分析">2.1 需求分析</h2>
+<p>通过前期对当今市场上流行的在线订票网站的调研，国内航班查询与预定系统需要实现以下功能：用户通过小程序实现快速查询与预定业务，平台管理员可根据航空公司和机场发送的的航班机票信息以及机场信息进行数据整合最后发布到平台上供用户获取查看，各管理员可通过后台数据透视，实时查看当前航班于机票的状态。国内航班查询与预定系统业务流程图如图2-1所示。</p>
+<p><img src="" alt="img"></p>
+<p>图2-1 国内航班查询与预定系统业务流程</p>
+<p>由上图可以轻松得知本项目角色较少且业务流程清晰，详细的需求分析主要从用户和管理员两部分进行详细分析。</p>
+<p>用户端根据导航栏的四大模块进行全方位的功能需求分析，具体的小程序端需求分析图如下图2-2所示。</p>
+<p><img src="" alt="img"></p>
+<p>图2-2 小程序端需求分析图</p>
+<p>在用户端中其中订票业务作为本系统的主要业务之一我采用订单和服务分开的方式进行处理，这样一订单对应一机票，对于航班的机票库存有了良好的控制。用户在点击查询按钮之后会有一个航班选择到订单支付的流程，具体的业务流程如下图2-3所示。</p>
+<p><img src="" alt="img"></p>
+<p>图2-3 查询预定业务流程</p>
+<p>管理员端是根据不同权限分区的管理员身份进行的需求分析，具体PC端需求分析图如下图2-4所示。</p>
+<p><img src="" alt="img"></p>
+<p>图2-4 PC端需求分析图</p>
+<h2 id="22-可行性分析">2.2 可行性分析</h2>
+<p>微服务架构的国内航班查询与预定系统可行性需求分析主要是从资金，技术，后期维护完善成本三个方面来具体分析。</p>
+<p>（1）资金可行性分析</p>
+<p>首先系统需要部署到服务器上，需要一个8C12G的服务器。还有就是程序引用了第三方的收费产品，如短信服务，oss对象存储服务等等，这些相对于进口国外大型主机是九牛一毛的。</p>
+<p>（2）技术可行性分析</p>
+<p>本系统将采用前后端分离后模式，前端分移动端和PC端页面，移动端采用uni-app框架，pc端采用Vue.js框架，后台采用Spring Cloud微服务架构。</p>
+<p>本文在借鉴当前市场上的航班查询与机票预订系统，采用主流的B/S结构，数据库采用开源，运行速度快，可移植，更简洁的MySQL数据库，采用Spring Cloud Alibaba那一套微服务技术，Spring Cloud Alibaba为分布式应用程序开发提供了一站式解决方案，可以更轻松地使用Spring Cloud开发应用程序。</p>
+<p>（3）后期维护成本分析</p>
+<p>由于使用的Spring Cloud微服务架构的系统，将每个服务注册到nacos注册中心中，各个服务之间通过Feign进行远程调用，极大程度降低了耦合度，降低后期维护成本。</p>
+<h2 id="23-开发环境">2.3 开发环境</h2>
+<p>根据技术可行性分析我们团队首相确定了开发环境及工具。</p>
+<p>开发工具环境及其作用如表2-1所示。</p>
+<p>表2-1 开发工具</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intellij Idea Community</td>
+<td>Java开发IDE</td>
+</tr>
+<tr>
+<td>CentOS</td>
+<td>服务器端系统</td>
+</tr>
+<tr>
+<td>HBuilder X</td>
+<td>前端开发 IDE</td>
+</tr>
+<tr>
+<td>Visual Studio Code</td>
+<td>前端开发 IDE</td>
+</tr>
+<tr>
+<td>Gitee</td>
+<td>团队项目管理</td>
+</tr>
+<tr>
+<td>微信开发者工具</td>
+<td>前端调试 IDE</td>
+</tr>
+<tr>
+<td>Navicat Premium 16</td>
+<td>数据库管理工具</td>
+</tr>
+</tbody>
+</table>
+<h2 id="24-成员分工">2.4 成员分工</h2>
+<p>根据之前的产品需求分析，我们初步商讨了成员在产品开发过程中的工作分配，具体的开发成员工作分配如下表2-2所示。</p>
+<p>表2-2 开发成员</p>
+<table>
+<thead>
+<tr>
+<th>成员名称</th>
+<th>负责内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>洪忠飞</td>
+<td>主要负责数据库设计以及后端接口代码的编写，其次是配合运维人员进行项目部署。能熟练掌握Spring全家桶架构，解决业务逻辑问题。  还有项目在Kubernetes上的部署，其中主要是制作镜像，将镜像上传阿里云仓库，熟练运用Docker技术拉取镜像，熟悉nginx的配置，解决域名跳转拦截的问题，同时对于小程序打包之后申请ssl证书配置https后台接口访问。</td>
+</tr>
+<tr>
+<td>田雨</td>
+<td>主要负责小程序的界面开发，项目设计，负责产品界面的视觉创意和动态交互创意设计，以及产品日常运营创意设计；配合云开发人员实现界面和功能。负责前端效果调优，前端体验优化。熟悉WXML、WXSS等小程序制作技术，能够解决不同手机系统兼容性问题。</td>
+</tr>
+<tr>
+<td>陈佳鑫</td>
+<td>主要负责后台PC端管理员的页面，参与产品前期情感化设计研究、设计流行趋势分析，参与制定产品的整体品牌风格；负责产品推广、品牌运营以及市场活动的主视觉、H5及相关设计工作；参与产品设计视觉体验、流程、规范的制定，产品周边延展物料设计的创意工作。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-系统设计方案">3 系统设计方案</h1>
+<p>对于国内航班查询与机票预定系统，采用Spring Cloud Alibaba微服务的那一套，简化开发难度，提高开发效率，并且通过Easy-Code插件进行重复代码的一键生成，对于数据库表的操作，我使用的是Mybatis-Plus，相对于传统的Mybatis中通过sql语句对于mysql数据库表的操作，MP的条件构造器可以完全取代，并且代码更简略，可以使我更加注重逻辑代码的编写，而不用考虑琐碎的sql语句，并且MP能够使文件之间的耦合都更低，我主要负责整体项目的数据库设计以及后端java接口的设计与实现。</p>
+<h2 id="32-架构设计">3.2 架构设计</h2>
+<p>使用微服务架构整个项目，所以我们采用经典的Spring-Cloud微服务架构，它可以实现所需服务的快速部署，比如说注册中心，负载均衡等等都可以实现Spring Boot风格的一键启动和部署。注册中心，配置中心采用更加优秀的nacos，所有服务都注册到nacos中，实现统一配置，服务发现等功能。存储是通过MySQL数据库永久性存储+Redis缓存技术结合，实现不同数据的不同处理。通过hystrix实现系统的监控报警以及降级熔断功能。一些非结构化的文件数据可以通过OSS对象存储来存储，实现低成本、可扩展、又能够确保一定程度自我管理的方式，具体的项目架构图如下图3-1和图3-2所示。</p>
+<p><img src="" alt="微服务总体架构图(2)"></p>
+<p>图3-1 微服务架构图</p>
+<p><img src="" alt="系统架构图"></p>
+<p>图3-2 架构层次图</p>
+<h2 id="33-数据库设计">3.3 数据库设计</h2>
+<p>数据库方面，由于本项目需要满足高并的场景，产品要时刻保持高吞吐量，所以发为了提高数据库查询效率就不能使用数据库的外键连接，他会严重影响服务的吞吐量上限。为了降低耦合度，我分别建立了两个数据库，oder和highestplane，对应的分别是订单数据库和航班飞机数据库，多数据库配合微服务架构极大的降低了耦合度以下是具体的数据库表结构。以下为本项目涉及到的十二张表的设计以及字段注释。</p>
+<p>（1）航班信息表（flight）</p>
+<p>航班信息表用于记录航班信息，包含航班号，飞行日期，起飞时间，降落时间，出发地，目的地等字段。具体数据库表结构如图3-3所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-3 航班信息表</p>
+<p>（2）用户信息表（users）</p>
+<p>用户信息表用于记录登录注册的用户信息，包含用户头像，用户昵称，用户密码，真实姓名，用户性别，用户手机号，用户身份证号等字段。具体数据库表结构如图3-4所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-4 用户信息表</p>
+<p>（3）机票种类表（ticket）</p>
+<p>机票信息表用于记录每个航班中的机票信息，包含舱位信息，机票价格，机票数量，奖励里程等字段。具体数据库表结构如图3-5所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-5 机票种类表</p>
+<p>（4）飞机信息表（plane）</p>
+<p>飞机信息表用于记录飞机型号及种类信息，包含机龄， 飞机准点率，所属航空公司，座位数，飞机种类等字段。具体数据库表结构如图3-6所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-6 飞机信息表</p>
+<p>（5）乘客信息表（passenger）</p>
+<p>乘客信息表用于记录乘机人信息，包含用户id，乘机人姓名，乘机人性别，乘机人手机号，乘机人证件号等字段。具体数据库表结构如图3-7所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-7 乘客信息表</p>
+<p>（6）公告信息表（notice）</p>
+<p>公告信息表用于记录程序中发布的各种公告信息，包含公告名称，公告更新时间，公告状态等字段。具体数据库表结构如图3-8所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-8 公告信息表</p>
+<p>（7）首页广告表（crm_banner）</p>
+<p>首页广告信息表用于记录程序中的各种广告推送信息，包含图片地址，链接地址，创建时间，更新时间等字段。具体数据库表结构如图3-9所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-9 首页广告表</p>
+<p>（8）评价与反馈信息表（comment）</p>
+<p>评价与反馈信息表用于记录用户对某次飞行体验的评价信息，包含航班id，用户昵称，评论内容，创建时间和更新时间等字段。具体数据库表结构如图3-10所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-10 评价与反馈信息表</p>
+<p>（9）城市信息表（city）</p>
+<p>城市信息表用于记录拥有机场的城市信息，方便排序，包含城市名称，城市首字母等字段。具体数据库表结构如图3-11所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-11 城市信息表</p>
+<p>（10）管理员信息表（administer）</p>
+<p>管理员信息表用于记录后台管理员的基本信息，包含管理员名称，手机号，密码，昵称以及管理员用户签名等字段。具体数据库表结构如图3-12所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-12 管理员信息表</p>
+<p>（11）订单信息表（oder）</p>
+<p>订单信息表用于记录用户机票订单信息，包含机票id，用户id，订单总金额，支付方式，座位号，仓位类型，联系人姓名，联系人电话以及其他的增值服务等字段。具体数据库表结构如图3-13所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-13 订单信息表</p>
+<p>（12）增值服务信息表（value）</p>
+<p>增值服务信息表用于记录飞行附带的增值服务信息，包含增值服务名称，增值服务单价等字段。具体数据库表结构如图3-14所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-14 增值服务信息表</p>
+<h2 id="34-工程模块划分">3.4 工程模块划分</h2>
+<p>通过不同之前的需求分析我主要分了三个主模块来分别放置对应服务，common是公共模块父节点，其中common-util是公共工具类模块，所有抹开都可以依赖他，service-base包含饿了service服务的公共配置类，所有service模块都依赖于它，spring-security是权限认证与授权模块，所有需要认证授权的service服务都依赖于它；infrastructure是基础模块父节点，service是api接口服务父节点，详细可参考下图3-15。</p>
+<p><img src="" alt="img"></p>
+<p>图3-15 工程模块设计</p>
+<h2 id="35-接口设计">3.5 接口设计</h2>
+<p>针对于不同功能的接口，其大致的编写流程都大同小异，通过IDEA中的easy-code插件可以大大地节约我们写重复代码的时间，可以是我们更加注重业务的逻辑代码，提高开发效率。具体的接口开发流程如下图3-16所示。</p>
+<p><img src="" alt="img"></p>
+<p>图3-16 接口开发流程</p>
+<p>其中impl实现类中重写接口方法是具体主要的业务逻辑代码。</p>
+<p>接口设计大致可以分为两类，一种是普通用户接口即前台小程序页面的接口这里我使用systemshow来表示，一种是管理员的接口即后台管理页面的接口使用systemservice来表示，下面是具体的接口设计说明：</p>
+<p>（1）普通用户接口设计如表3-1所示。</p>
+<p>表3-1 普通用户接口</p>
+<table>
+<thead>
+<tr>
+<th>接口</th>
+<th>请求方式</th>
+<th>参数类型</th>
+<th>返回值类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://localhost:8006/swagger-ui.html#!/msm45controller/sendMsmUsingGET">/systemmsm/msm/send/{phone}</a></td>
+<td>GET</td>
+<td>json</td>
+<td>json</td>
+<td>发送验证码</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8150/swagger-ui.html#!/users45controller/loginUserUsingPOST">/systemucenter/member/login</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>验证登录</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8150/swagger-ui.html#!/users45controller/registerUserUsingPOST">/systemucenter/member/register</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>用户注册</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8150/swagger-ui.html#!/users45controller/getMemberInfoUsingGET">/systemucenter/member/getMemberInfo</a></td>
+<td>GET</td>
+<td>String</td>
+<td>json</td>
+<td>校验令牌</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8005/swagger-ui.html#!/banner45front45controller/getAllBannerUsingGET_1">/systemcms/bannerfront/getAllBanner</a></td>
+<td>GET</td>
+<td>Null</td>
+<td>json</td>
+<td>查询广告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/city45show/selectAllUsingGET_1">/systemshow/city/findAll</a></td>
+<td>GET</td>
+<td>Integer,string,string</td>
+<td>json</td>
+<td>多条件组合查询城市信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/city45show/selectOneUsingGET_1">/systemshow/city/{id}</a></td>
+<td>GET</td>
+<td>Integer</td>
+<td>json</td>
+<td>根据主键查询城市</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/flight45show/selectUsingGET">/systemshow/flight/select</a></td>
+<td>GET</td>
+<td>date,string</td>
+<td>json</td>
+<td>根据日期，起降地查询对应航班信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/flight45show/select2UsingGET">/systemshow/flight/select3</a></td>
+<td>GET</td>
+<td>string,date</td>
+<td>json</td>
+<td>根据航班号，日期查询对应航班信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/passenger45show/deleteUsingDELETE_4">/systemshow/passenger/delete</a></td>
+<td>DELETE</td>
+<td>Array[string]</td>
+<td>json</td>
+<td>删除登录账号的乘机人信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/passenger45show/findByCreatUsingGET">/systemshow/passenger/findByUserId</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>查询登陆账号的所有乘机人信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/passenger45show/insertUsingPOST_4">/systemshow/passenger/insert</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>为登录账号添加乘机人信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/passenger45show/updateUsingPUT_4">/systemshow/passenger/update</a></td>
+<td>PUT</td>
+<td>json</td>
+<td>json</td>
+<td>修改登录账号的乘机人信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/ticket45controller/selectOne2UsingGET">/systemservice/ticket/2/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>根据机票id查询对应的航班信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/ticket45show/selectAllUsingGET_7">/systemshow/ticket/findAll</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>根据舱位类型查询机票信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/ticket45show/increaseUsingGET">/systemshow/ticket/increase/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>修改机票数量加一</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/ticket45show/reduceUsingGET">/systemshow/ticket/reduce/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>修改机票数量减一</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45show/deleteUsingDELETE_1">/systemshow2/oder/delete</a></td>
+<td>DELETE</td>
+<td>string</td>
+<td>json</td>
+<td>退票</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45show/insertUsingPOST_1">/systemshow2/oder/insert</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>填写订单信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45show/selectOrderUsingPOST">/systemshow2/oder/select</a></td>
+<td>POST</td>
+<td>string</td>
+<td>json</td>
+<td>查询某账号的所有订单信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45show/selectAllUsingPOST">/systemshow2/oder/selectByUserId</a></td>
+<td>POST</td>
+<td>string</td>
+<td>json</td>
+<td>查询某账号的所有订单信息对应的航班信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45show/updateUsingPUT_1">/systemshow2/oder/update</a></td>
+<td>PUT</td>
+<td>json</td>
+<td>json</td>
+<td>修改订单信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/value45show/selectAllUsingGET_1">/systemshow/value/findAll</a></td>
+<td>GET</td>
+<td>Null</td>
+<td>json</td>
+<td>查询所有增值服务信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8002/swagger-ui.html#!/oss45controller/uploadOssFileUsingPOST">/systemoss/fileoss</a></td>
+<td>POST</td>
+<td>file</td>
+<td>json</td>
+<td>上传用户头像</td>
+</tr>
+</tbody>
+</table>
+<p>（2）管理员接口设计如表3-2所示。</p>
+<p>表3-2 管理员接口</p>
+<table>
+<thead>
+<tr>
+<th>接口</th>
+<th>请求方式</th>
+<th>参数类型</th>
+<th>返回值类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://localhost:8005/swagger-ui.html#!/banner45admin45controller/deleteUsingDELETE">/systemcms/banneranmin/delete</a></td>
+<td>DELETE</td>
+<td>Array[string]</td>
+<td>json</td>
+<td>管理员批量删除广告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8005/swagger-ui.html#!/banner45admin45controller/selectAllUsingGET">/systemcms/banneranmin/findAll</a></td>
+<td>GET</td>
+<td>Null</td>
+<td>json</td>
+<td>管理员查询所有广告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8005/swagger-ui.html#!/banner45admin45controller/insertUsingPOST">/systemcms/banneranmin/insert</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>管理员添加广告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8005/swagger-ui.html#!/banner45admin45controller/updateUsingPUT">/systemcms/banneranmin/update</a></td>
+<td>PUT</td>
+<td>json</td>
+<td>json</td>
+<td>管理员修改广告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8005/swagger-ui.html#!/banner45admin45controller/selectOneUsingGET">/systemcms/banneranmin/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>管理员根据主键查询广告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/flight45controller/deleteUsingDELETE_1">/systemservice/flight/delete</a></td>
+<td>DELETE</td>
+<td>Array[string]</td>
+<td>json</td>
+<td>管理员批量删除航班信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/flight45controller/selectAllUsingGET_2">/systemservice/flight/findAll</a></td>
+<td>GET</td>
+<td>Null</td>
+<td>json</td>
+<td>管理员查看所有航班信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/flight45controller/insertUsingPOST_1">/systemservice/flight/insert</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>管理员添加航班信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/flight45controller/updateUsingPUT_1">/systemservice/flight/update</a></td>
+<td>PUT</td>
+<td>json</td>
+<td>json</td>
+<td>管理员修改航班信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/flight45controller/selectOneUsingGET_2">/systemservice/flight/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>管理员根据主键查询对应航班信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/notice45controller/deleteUsingDELETE_2">/systemservice/notice/delete</a></td>
+<td>DELETE</td>
+<td>Array[string]</td>
+<td>json</td>
+<td>管理员批量删除公告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/notice45controller/selectAllUsingGET_3">/systemservice/notice/findAll</a></td>
+<td>GET</td>
+<td>Null</td>
+<td>json</td>
+<td>管理员查询所有公告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/notice45controller/insertUsingPOST_2">/systemservice/notice/insert</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>管理员添加公告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/notice45controller/updateUsingPUT_2">/systemservice/notice/update</a></td>
+<td>PUT</td>
+<td>json</td>
+<td>json</td>
+<td>管理员修改公告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/notice45controller/selectOneUsingGET_3">/systemservice/notice/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>管理员根据主键查询对应公告信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/passenger45controller/deleteUsingDELETE_3">/systemservice/passenger/delete</a></td>
+<td>DELETE</td>
+<td>Array[string]</td>
+<td>json</td>
+<td>管理员批量删除乘机人信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/passenger45controller/selectAllUsingGET_4">/systemservice/passenger/findAll</a></td>
+<td>GET</td>
+<td>Null</td>
+<td>json</td>
+<td>管理员查询所有乘机人信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/passenger45controller/insertUsingPOST_3">/systemservice/passenger/insert</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>管理员添加乘机人信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/passenger45controller/updateUsingPUT_3">/systemservice/passenger/update</a></td>
+<td>PUT</td>
+<td>json</td>
+<td>json</td>
+<td>管理员修改乘机人信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/passenger45controller/selectOneUsingGET_4">/systemservice/passenger/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>管理员根据主键查询对应乘机人信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/ticket45controller/deleteUsingDELETE_6">/systemservice/ticket/delete</a></td>
+<td>DELETE</td>
+<td>Array[string]</td>
+<td>json</td>
+<td>管理员批量删除机票信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/ticket45controller/selectAllUsingGET_6">/systemservice/ticket/findAll</a></td>
+<td>GET</td>
+<td>Null</td>
+<td>json</td>
+<td>管理员查询所有机票信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/ticket45controller/insertUsingPOST_6">/systemservice/ticket/insert</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>管理员添加机票信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/ticket45controller/updateUsingPUT_6">/systemservice/ticket/update</a></td>
+<td>PUT</td>
+<td>json</td>
+<td>json</td>
+<td>管理员修改机票信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/ticket45controller/selectOneUsingGET_6">/systemservice/ticket/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>管理员根据主键查询对应机票信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/users45controller/deleteUsingDELETE_7">/systemservice/users/delete</a></td>
+<td>DELETE</td>
+<td>Array[string]</td>
+<td>json</td>
+<td>管理员批量删除账号信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/users45controller/selectAllUsingGET_8">/systemservice/users/findAll</a></td>
+<td>GET</td>
+<td>Null</td>
+<td>json</td>
+<td>管理员查询所有账号信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/users45controller/insertUsingPOST_7">/systemservice/users/insert</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>管理员添加账号信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/users45controller/updateUsingPUT_7">/systemservice/users/update</a></td>
+<td>PUT</td>
+<td>json</td>
+<td>json</td>
+<td>管理员修改账号信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8001/swagger-ui.html#!/users45controller/selectOneUsingGET_7">/systemservice/users/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>管理员根据主键查询对应账号信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45controller/deleteUsingDELETE">/systemorder/oder/delete</a></td>
+<td>DELETE</td>
+<td>Array[string]</td>
+<td>json</td>
+<td>管理员批量删除订单信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45controller/selectAllUsingGET">/systemorder/oder/findAll</a></td>
+<td>GET</td>
+<td>Null</td>
+<td>json</td>
+<td>管理员查询所有订单信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45controller/insertUsingPOST">/systemorder/oder/insert</a></td>
+<td>POST</td>
+<td>json</td>
+<td>json</td>
+<td>管理员添加订单信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45controller/updateUsingPUT">/systemorder/oder/update</a></td>
+<td>PUT</td>
+<td>json</td>
+<td>json</td>
+<td>管理员修改订单信息</td>
+</tr>
+<tr>
+<td><a href="http://localhost:8004/swagger-ui.html#!/oder45controller/selectOneUsingGET">/systemorder/oder/{id}</a></td>
+<td>GET</td>
+<td>string</td>
+<td>json</td>
+<td>管理员根据主键查询对应订单信息</td>
+</tr>
+</tbody>
+</table>
+<h1 id="4-功能实现">4 功能实现</h1>
+<p>功能接口实现这一章就是对之前系统分析之后的的产品进行实践，这里根据接口实际编写的具体顺序进行了接口开发展示，主要包括接口描述，实现流程以及重要的业务逻辑代码。</p>
+<h2 id="41-登录">4.1 登录</h2>
+<p>用户输入用户名密码登入返回token字符串，然后将token字符串放到cookie中，接着在根据token值调用接口，返回token字符串所对应的用户信息，最后将用户信息在页面上进行展示。具体token验证的业务流程如下图4-1所示。</p>
+<p><img src="" alt="img"></p>
+<p>图4-1 token验证</p>
+<p>登录接口关键业务代码：</p>
+<pre tabindex="0"><code>//获取登陆手机号和密码
+String phoneNumber = member.getPhoneNumber();
+String password = member.getPassword();
+//手机号和密码非空判断
+if (StringUtils.isEmpty(phoneNumber) || StringUtils.isEmpty(password)) {
+    throw new FlightException(-1,&#34;请填写完整信息！&#34;);
+}
+//判断用户输入的手机号是否正确
+QueryWrapper&lt;Administer&gt; wrapper = new QueryWrapper&lt;&gt;();
+wrapper.eq(&#34;phone_number&#34;,phoneNumber);
+Administer phoneMember = baseMapper.selectOne(wrapper);
+//判断查询对象是否为空
+if(phoneMember == null) {//没有这个手机号
+    throw new FlightException(-1,&#34;该手机号还没有注册！&#34;);
+}
+//判断密码
+if(!MD5.encrypt(password).equals(phoneMember.getPassword())) {
+    throw new FlightException(-1, &#34;密码错误！&#34;);
+}
+//登陆成功
+//生成token字符串，使用jwt工具
+String jwtToken = JwtUtils.getJwtToken(String.valueOf(phoneMember.getId()), phoneMember.getNickName());
+return jwtToken
+</code></pre><h2 id="42-注册">4.2 注册</h2>
+<p>用户通过输入用户名，手机号，6-20位同时含有数字和字母的密码以及发送至用户手机上的验证码来实现注册功能，这里就用到了第三方的短信服务，用于发送验证码，将验证码存储到redis中用于验证。</p>
+<p>注册接口关键业务代码：</p>
+<pre tabindex="0"><code>            //获取注册的数据
+//        String id = registerVo.getId();
+            String code = registerVo.getCode(); //验证码
+            String phoneNumber = registerVo.getPhoneNumber(); //手机号
+            String nickname = registerVo.getNickname(); //昵称
+            String password = registerVo.getPassword(); //密码
+            //非空判断
+            if (StringUtils.isEmpty(phoneNumber) || StringUtils.isEmpty(password)
+                    || StringUtils.isEmpty(code) || StringUtils.isEmpty(nickname)) {
+                throw new FlightException(-1,&#34;登录失败&#34;);
+            }
+            //判断手机验证码
+            //获取redis里面的验证码
+            String redisCode = redisTemplate.opsForValue().get(phoneNumber);
+            if (!code.equals(redisCode)) {
+                throw new FlightException(-1,&#34;注册失败&#34;);
+            }
+            //判断手机号是否已经在表中存在了
+            QueryWrapper&lt;Administer&gt; wrapper = new QueryWrapper&lt;&gt;();
+            wrapper.eq(&#34;phone_number&#34;,phoneNumber);
+            Integer count = baseMapper.selectCount(wrapper);
+            if(count &gt; 0) {
+                throw new FlightException(-1,&#34;注册失败&#34;);
+            }
+            //数据添加到数据库中
+            Administer member = new Administer();
+//        member.setId(Integer.valueOf(id));
+            member.setPhoneNumber(phoneNumber);
+            member.setNickName(nickname);
+            member.setPassword(MD5.encrypt(password));//密码需要加密的
+            member.setSalt(&#34;https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage.91chep.com%2F8f2352f6cd014adea43ca1ef8b6960a4.png&amp;refer=http%3A%2F%2Fimage.91chep.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1656833761&amp;t=6723e682042fd427ad5bd8799beb28b5&#34;);
+            baseMapper.insert(member);
+    }
+</code></pre><h2 id="43-航班查询">4.3 航班查询</h2>
+<p>航班的查询就是多条件组合查询。实现在给定日期、航班号或给定日期、出发地、目的地两种组合模式下的航班查询，查询结果中包含航班的起降时间、剩余座位数、票价。</p>
+<p>航班查询接口关键业务代码：</p>
+<pre tabindex="0"><code>//日期+起飞城市+目的地城市查询
+@GetMapping(&#34;select&#34;)
+public R select(Flight flight) {
+    List&lt;Flight&gt; list = flightService.select(flight);
+    return success(list);
+}
+//航班号+日期查询
+@GetMapping(&#34;select2&#34;)
+public R select2(Flight flight) {
+    //日期
+    Date flightDate = flight.getFlightDate();   //用户输入的日期
+    //航班号
+    String flightNumber = flight.getFlightNumber(); //用户输入的航班号
+    //非空判断
+    if (StringUtils.isEmpty(flightDate) || StringUtils.isEmpty(flightNumber)) {
+        throw new FlightException(-1,&#34;请填写完整的查询信息&#34;);
+    }
+    return success(this.flightService.list(new QueryWrapper&lt;&gt;(flight)));
+}
+//航班号+日期查询
+@GetMapping(&#34;select3&#34;)
+public R select3(String flightnumber,String flightdate) {
+    QueryWrapper&lt;Flight&gt; wrapper = new QueryWrapper&lt;&gt;();
+    wrapper.eq(&#34;flight_number&#34;,flightnumber).eq(&#34;flight_date&#34;,flightdate);
+    if (StringUtils.isEmpty(flightdate) || StringUtils.isEmpty(flightnumber)) {
+        throw new FlightException(-1,&#34;请填写完整的查询信息&#34;);
+    }
+    return success(this.flightService.list(wrapper));
+}
+</code></pre><h2 id="44-机票筛选">4.4 机票筛选</h2>
+<p>机票筛选功能根据航班查询出对应航班的所有机票信息，用户可以查看选定日期和未来四天的机票信息，点击日历图标，可重新选择具体日期。同时，用户可以通过点击底部筛选图标实现按航班的最低价格升序排列，按航班的起飞时间升序排列以及按照航班的飞行时长三种排列方式对机票信息进行清晰的呈现。</p>
+<p>机票筛选接口关键业务代码：</p>
+<pre tabindex="0"><code>    Date flightDate = flight.getFlightDate();
+    String startPlace = flight.getStartPlace();
+    String endPlace = flight.getEndPlace();
+    Integer lowestPrice = flight.getLowestPrice();
+    Time startTime = flight.getStartTime();
+    Time flightDuration = flight.getFlightDuration();
+    //用户输入非空判断
+    if (StringUtils.isEmpty(flightDate)
+            || StringUtils.isEmpty(startPlace)
+            || StringUtils.isEmpty(endPlace)){
+        throw new FlightException(-1,&#34;请输入完整的查询信息！&#34;);
+    }
+    QueryWrapper&lt;Flight&gt; wrapper = new QueryWrapper&lt;&gt;();
+    wrapper.eq(&#34;flight_date&#34;,flightDate);
+    wrapper.eq(&#34;start_place&#34;,startPlace);
+    wrapper.eq(&#34;end_place&#34;,endPlace);
+    if (!StringUtils.isEmpty(lowestPrice)){ //前端价格传值则升序排列
+    wrapper.orderByAsc(&#34;lowest_price&#34;);
+    }
+    if (!StringUtils.isEmpty(flightDuration)){ //前端飞行时长传值则升序排列
+        wrapper.orderByAsc(&#34;flight_duration&#34;);
+    }
+    if (!StringUtils.isEmpty(startTime)){ //前端起飞时间传值则升序排列
+        wrapper.orderByAsc(&#34;start_time&#34;);
+    }
+    //根据条件做查询
+    List&lt;Flight&gt; date_list = baseMapper.selectList(wrapper);
+    //查询数据库中是否有值
+    if(date_list.isEmpty()) {
+        throw new FlightException(-1,&#34;暂无航班！&#34;);
+    }
+    return date_list;
+}
+</code></pre><h2 id="45-舱型选择">4.5 舱型选择</h2>
+<p>用户可以根据自己的需求，选择所需的机舱类型，不同舱型的价格不同，服务的内容也有所差别。这里根据不同的机舱类型进行了机票的分类，默认优先显示经济舱的机票。</p>
+<p>舱型选择接口关键业务代码：</p>
+<pre tabindex="0"><code>String flightId = ticket.getFlightId();
+String cabinType = ticket.getCabinType();
+QueryWrapper&lt;Ticket&gt; wrapper = new QueryWrapper&lt;&gt;();
+wrapper.eq(&#34;flight_id&#34;, flightId);
+if (StringUtils.isEmpty(flightId)){
+    throw new FlightException(-1,&#34;请给我传所需要查询的航班好，我才能查询该航班的机票信息！&#34;);
+}
+if (StringUtils.isEmpty(cabinType)) {   //如果前端没有给cabinType传值，默认显示经济舱
+    //前端传航班号+仓位类型   默认先显示经济舱
+    wrapper.eq(&#34;cabin_type&#34;, &#34;经济舱&#34;);
+}else {
+    wrapper.eq(&#34;cabin_type&#34;,cabinType);
+}
+List&lt;Ticket&gt; list = baseMapper.selectList(wrapper);
+return list;
+</code></pre><h2 id="46-订单填写及增值服务的选择">4.6 订单填写及增值服务的选择</h2>
+<p>订单填写就是用户在选择好所需机票之后进行的，这里会要求用户填写乘机人，联系人，联系人电话，以及一些增值服务，用户可以根据自己的需求，选择是否需要优先登机、选座服务、饭点候机等增值服务，注意每个服务可以添加多个，但是最多不能超过乘机人人数。</p>
+<p>订单填写及增值服务的选择接口关键业务代码：</p>
+<pre tabindex="0"><code> String phoneNumber = oder.getPhoneNumber();
+        String contacts = oder.getContacts();
+//        oder.setInsuranceGl(0);    //隔离津贴 0是未勾选，1是勾选，默认设置未勾选
+//        oder.setInsuranceTg(0);    //退改保险
+//        oder.setInsuranceYw(0);    //延误保险
+        if (StringUtils.isEmpty(phoneNumber)){
+            throw new FlightException(-1,&#34;请输入联系人电话！&#34;);
+        }
+        if (StringUtils.isEmpty(contacts)){
+            throw new FlightException(-1,&#34;请输入联系人姓名！&#34;);
+        }
+/*        if (StringUtils.isEmpty(oder.getInsuranceGl())){
+            oder.setInsuranceGl(0);    //隔离津贴 0是未勾选，1是勾选,空值也是未勾选
+        }else
+        {
+            oder.setInsuranceGl(1);
+        }
+        if (StringUtils.isEmpty(oder.getInsuranceTg())){
+            oder.setInsuranceTg(0);
+        }else {
+            oder.setInsuranceTg(1);
+        }
+        if (StringUtils.isEmpty(oder.getInsuranceYw())){
+            oder.setInsuranceYw(0);
+        }else {
+            oder.setInsuranceYw(1);
+        }*/
+        if (!StringUtils.isEmpty(oder.getInsuranceGl())) {
+            oder.setInsuranceGl(1);
+        }
+        if (!StringUtils.isEmpty(oder.getInsuranceTg())){
+            oder.setInsuranceTg(1);
+        }
+        if (!StringUtils.isEmpty(oder.getInsuranceYw())){
+            oder.setInsuranceYw(1);
+        }
+/*        if (!StringUtils.isEmpty(oder.getGetSeat())){
+            oder.setGetSeat(oder.getGetSeat()+1);
+        }
+       if (StringUtils.isEmpty(oder.getFirstBarding())){
+            oder.setFirstBarding(0);
+        }
+        if (StringUtils.isEmpty(oder.getEatWaiting())){
+            oder.setEatWaiting(0);
+        }*/
+        return (baseMapper.insert(oder));
+    }
+</code></pre><h2 id="47--订单查看">4.7  订单查看</h2>
+<p>用户可以通过点击首页面最下方导航栏中的订单来查看该用户所购买的所有机票订单，点击任意订单，跳转到订单的详情界面，可以查看该订单的航班信息，乘机人信息，订单编号以及订单价格。</p>
+<p>订单查看接口关键业务代码：</p>
+<pre tabindex="0"><code>        List&lt;Oder&gt; list = oderService.findall(uid);
+        List&lt;R&gt; r = new ArrayList&lt;&gt;();
+        //循环查询到的订单
+        for (Oder one : list) {
+            String ticketId = one.getTicketId();
+            //远程调用通过订单中的机票id远程调用ticketshow中的根据ticketid的查询
+            r.add(planeClient.selectOne2(ticketId));
+        }
+//        Oder oder = new Oder();
+//        String ticketId = oder.getTicketId();
+//        //远程调用查询ticket机票信息
+//        R r = planeClient.selectOne2(ticketId);
+        return success(r);
+</code></pre><h2 id="48-退票">4.8 退票</h2>
+<p>用户退票可以通过在tabBar栏中点击服务大厅，选择服务大厅页面中的机票退改图标，进入已购机票页面。用户点击想要修改的机票，跳出弹框，选择需要对该机票进行退票或是改签。若用户点击退票，则跳出弹框，确认是否退票，点击确定就会实现退票功能，更新订单。</p>
+<p>退票业务需要对机票和订单同时进行操作与更新，所以这里用到了Feign远程调用。</p>
+<p>退票接口关键业务代码：</p>
+<pre tabindex="0"><code>/**
+ * 退票
+ *
+ * @return 删除结果
+ */
+@DeleteMapping(&#34;delete&#34;)
+public R delete(@RequestParam(&#34;id&#34;) String id) {
+    Oder byId = oderService.getById(id);
+    String ticketId = byId.getTicketId();
+    //      远程调用机票递增接口
+    R increase = planeClient.increase(ticketId);
+    boolean b = oderService.removeById(id);
+    return success(b);
+}
+</code></pre><h2 id="49-改签">4.9 改签</h2>
+<p>改签与退票前面的流程一样，在流程选择上若用户点击改签，则进入改签页面，选择想要改签的日期，然后点击查询航班按钮，进入改签详情页面，点击改按钮，弹出弹框，确认是否改签。</p>
+<p>改签简单来说就是在同一航班中进行退票和再次购票，首先是对订单的删除，然后通过Feign远程调用机票信息服务，对相对应的机票信息进行操作，最后在调用机票筛选的接口，进行不同日期的机票的选择，从而达到改签的功能。</p>
+<p>改签接口关键业务代码：</p>
+<pre tabindex="0"><code>    /**
+     * 改票
+     * @return 修改结果
+     */
+    @PutMapping(&#34;update&#34;)
+    public R update(@RequestBody Oder oder) {
+        String ticketId1 = oder.getTicketId();   //用户传的ticketId
+        Oder byId = oderService.getById(oder.getId());
+        String ticketId2 = byId.getTicketId();  //表中原来的ticketId
+        //如果两值相同，即代表用户不需要修改机舱信息
+        if (ticketId1.equals(ticketId2)) {
+            //不是升舱的话，就是改期，修改飞行日期
+        } else {
+        //传的值不同则表示用户需要修改机舱信息
+//            oderService.updateBatchById()
+        }
+        return success(this.oderService.updateById(oder));
+    }
+</code></pre><h2 id="410-升舱">4.10 升舱</h2>
+<p>用户在升舱页面选择所需要升舱的订单，然后点击需要升舱的类型进行选择，最后提交申请，即可进行升舱操作。</p>
+<p>本质上其实升舱功能也就是改票，不同的是升舱是修改订单信息，然后修改对应的机票数量及座位数信息，最后用户补差价就可以了。</p>
+<p>升舱接口关键业务代码：</p>
+<pre tabindex="0"><code>        String ticketId1 = oder.getTicketId();   //用户传的ticketId
+        Oder byId = oderService.getById(oder.getId());
+        String ticketId2 = byId.getTicketId();  //表中原来的ticketId
+        //如果两值相同，即代表用户不需要修改机舱信息
+        if (ticketId1.equals(ticketId2)) {
+            //不是升舱的话，就是改期，修改飞行日期
+        } else {
+        //传的值不同则表示用户需要修改机舱信息
+//            oderService.updateBatchById()
+        }
+        return success(this.oderService.updateById(oder));
+    }
+//远程调用机票信息，填充ticket_idcabin_type,cabinname
+@GetMapping(&#34;/systemservice/ticket/2/{id}&#34;)
+public R selectOne2(@PathVariable(&#34;id&#34;) String id);
+//远程调用机票递减的接口
+@GetMapping(&#34;/systemshow/ticket/reduce/{id}&#34;)
+public R reduce(@PathVariable(&#34;id&#34;) String id);
+//远程调用机票递增接口
+@GetMapping(&#34;/systemshow/ticket/increase/{id}&#34;)
+public R increase(@PathVariable(&#34;id&#34;) String id);
+</code></pre><h1 id="5-系统测试">5 系统测试</h1>
+<p>系统测试通过将项目部署到机房服务器中之后，在客户端中进行接口压力测试。</p>
+<h2 id="51-测试环境">5.1 测试环境</h2>
+<p>（1）服务器环境8C12G；磁盘80G</p>
+<p>（2）客户端环境6C16G；操作系统windows10；浏览器Firefox</p>
+<h2 id="52-测试方法及结果">5.2 测试方法及结果</h2>
+<p>接口调用测试，使用swagger和postman进行接口调用测试。</p>
+<p>接口压力测试，使用jemeter进行航班查询与机票预订的并发测试。测试结果如下图5-1和图5-2所示。</p>
+<p><img src="" alt="img"></p>
+<p>图5-1 并发查询测试结果</p>
+<p><img src="" alt="img"></p>
+<p>图5-2 并发预定查询结果</p>
+<p>从图中可以看出系统支持500人以上并发查询和50人以上并发预订的能力，且在此场景下单次查询或预订的响应时间都在1秒以内能够完成。</p>
+<h1 id="结论与谢辞">结论与谢辞</h1>
+<p>通过与团队一起开发开发国内航班查询与机票预定系统，对于整个团队来说通过团队协作使我团队成员工作分配以及遇到突发情况的解决手段都有了质的飞跃，这些经验是之前学习过程中从来没有过的；对于我个人来说自己领队开发一款企业级的项目是我对于产品开发流程有了更清晰的认识，哪一部分的内容需要深思熟虑，哪一部分的内容可以一笔带过都有了一份属于我自己的理解，让我对数据库设计，各个不同服务之间的划分设计也有了一套自己的见解。总的来说就是通过这一次的产品研发使我完全蜕变了，这次出现的问题在以后做项目的时候都是我宝贵的经验，无论是学习方法还是代码逻辑还是心态还有业务流程都有的质的飞跃。</p>
+<p>在此，我十分感谢我的指导老师王静老师，若不是王老师每天的耐心陪伴与悉心指导，我和我的团队不会有今天的成就。同样也十分感谢我的学校，提供给我们一个环境优美，干净卫生的工作室，这使得我们团队可以全身心地投入到产品的研发当中去，感谢我的学校提供良好的资金支持，使我们拥有自己的服务器设备。接着我要感谢我团队的每一位成员，若不是你们在我背后支持我，帮助我，我可能不会在面临困难的时候坚持下来。最后希望我们通过这次开发产品经验，在未来的道路中能够发挥所长研发设计出更优秀的作品。</p>
+<h1 id="参考文献">参考文献</h1>
+<p>[1]安君. 北京首都航空公司航班信息管理系统的设计与实现[D].大连理工大学,2015.</p>
+<p>[2]张文航.基于Web的机票预订系统的设计与实现[J].无线互联科技,2015(24):60-61.</p>
+<p>[3]苏彦文,丁勇.基于Android手机航空订票系统的实现方法[J].自动化技术与应用,2021,40(04):132-135.</p>
+<p>[4]潘冬. 基于Drools规则引擎的航空行李运输系统的设计与实现[D].华中师范大学,2019.</p>
+<p>[5]李文媛. 昆明航空公司团队销售管理系统的研究与分析[D].云南大学,2017.</p>
+<p>[6]罗彤.客票系统在线订票接口方案[J].铁路通信信号工程技术,2018,15(09):51-54.</p>
+<p>[7]王璐. 电子商务平台航空订票系统的设计与实现[D].西安电子科技大学,2018.</p>
+<p>[8]单红红. 某机场订售票系统的设计与实现[D].北京工业大学,2016.</p>
+<p>[9]韩若冰. 机票预定系统的设计与实现[D].厦门大学,2014.</p>
+<p>[10]邱鹏. 基于用户查询行为分析的在线订票系统缓存优化策略研究[D].北京交通大学,2017.</p>
+<p>[11]周琳. 基于Open API的旅游在线订票系统的设计与实现[D].哈尔滨工业大学,2017.</p>
+<p>[12]张亚宾. 航旅纵横后台管理系统[D].北京工业大学,2017.</p>
+<h1 id="附件程序清单">附件：程序清单</h1>
+<p>package com.domestic.commonutils;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.util.StringUtils;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
+/**
+* @author helen
+* @since 2022/5/31
+<em>/
+public class JwtUtils {
+//常量
+public static final long EXPIRE = 1000 * 60 * 60 * 24; //token过期时间
+public static final String APP_SECRET = &ldquo;ukc8BDbRigUDaY6pZFfWus2jZWLPHO&rdquo;; //秘钥
+//生成token字符串的方法
+public static String getJwtToken(String id, String nickname){
+String JwtToken = Jwts.builder()
+.setHeaderParam(&ldquo;typ&rdquo;, &ldquo;JWT&rdquo;)
+.setHeaderParam(&ldquo;alg&rdquo;, &ldquo;HS256&rdquo;)
+.setSubject(&ldquo;flight-user&rdquo;)
+.setIssuedAt(new Date())
+.setExpiration(new Date(System.currentTimeMillis() + EXPIRE))
+.claim(&ldquo;id&rdquo;, id) //设置token主体部分 ，存储用户信息
+.claim(&ldquo;nickname&rdquo;, nickname)
+.signWith(SignatureAlgorithm.HS256, APP_SECRET)
+.compact();
+return JwtToken;
+}
+/</em>*
+* 判断token是否存在与有效（判断是否是伪造的token）
+* @param jwtToken
+* @return
+<em>/
+public static boolean checkToken(String jwtToken) {
+if(StringUtils.isEmpty(jwtToken)) return false;
+try {
+Jwts.parser().setSigningKey(APP_SECRET).parseClaimsJws(jwtToken);
+} catch (Exception e) {
+e.printStackTrace();
+return false;
+}
+return true;
+}
+/</em>*
+* 判断token是否存在与有效
+* @param request
+* @return
+<em>/
+public static boolean checkToken(HttpServletRequest request) {
+try {
+String jwtToken = request.getHeader(&ldquo;token&rdquo;);
+if(StringUtils.isEmpty(jwtToken)) return false;
+Jwts.parser().setSigningKey(APP_SECRET).parseClaimsJws(jwtToken);
+} catch (Exception e) {
+e.printStackTrace();
+return false;
+}
+return true;
+}
+/</em>*
+* 根据token字符串获取用户id
+* @param request
+* @return
+*/
+public static String getMemberIdByJwtToken(HttpServletRequest request) {
+String jwtToken = request.getHeader(&ldquo;token&rdquo;);
+if(StringUtils.isEmpty(jwtToken)) return &ldquo;&rdquo;;
+Jws<!-- raw HTML omitted --> claimsJws = Jwts.parser().setSigningKey(APP_SECRET).parseClaimsJws(jwtToken);
+Claims claims = claimsJws.getBody();
+return (String)claims.get(&ldquo;id&rdquo;);
+}
+}</p>
+<p>package com.domestic.commonutils;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+public final class MD5 {
+public static String encrypt(String strSrc) {
+try {
+char hexChars[] = { &lsquo;0&rsquo;, &lsquo;1&rsquo;, &lsquo;2&rsquo;, &lsquo;3&rsquo;, &lsquo;4&rsquo;, &lsquo;5&rsquo;, &lsquo;6&rsquo;, &lsquo;7&rsquo;, &lsquo;8&rsquo;,
+&lsquo;9&rsquo;, &lsquo;a&rsquo;, &lsquo;b&rsquo;, &lsquo;c&rsquo;, &rsquo;d&rsquo;, &rsquo;e&rsquo;, &lsquo;f&rsquo; };
+byte[] bytes = strSrc.getBytes();
+MessageDigest md = MessageDigest.getInstance(&ldquo;MD5&rdquo;);
+md.update(bytes);
+bytes = md.digest();
+int j = bytes.length;
+char[] chars = new char[j * 2];
+int k = 0;
+for (int i = 0; i &lt; bytes.length; i++) {
+byte b = bytes[i];
+chars[k++] = hexChars[b &raquo;&gt; 4 &amp; 0xf];
+chars[k++] = hexChars[b &amp; 0xf];
+}
+return new String(chars);
+} catch (NoSuchAlgorithmException e) {
+e.printStackTrace();
+throw new RuntimeException(&ldquo;MD5加密出错！！+&rdquo; + e);
+}
+}
+public static void main(String[] args) {
+System.out.println(MD5.encrypt(&ldquo;123456&rdquo;));
+}
+}</p>
+<p>package com.domestic.commonutils;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import java.util.HashMap;
+import java.util.Map;
+//统一返回结果的类
+@Data
+public class R {
+@ApiModelProperty(value = &ldquo;返回码&rdquo;)
+private long code;
+@ApiModelProperty(value = &ldquo;返回数据&rdquo;)
+private Map&lt;String, Object&gt; data = new HashMap&lt;&gt;();
+@ApiModelProperty(value = &ldquo;返回消息&rdquo;)
+private String msg;
+//把构造方法私有
+private R() {}
+//成功静态方法
+public static R ok() {
+R r = new R();
+r.setCode(ResultCode.SUCCESS);
+r.setMsg(&ldquo;成功&rdquo;);
+return r;    //方便链式编程
+}
+//失败静态方法
+public static R error() {
+R r = new R();
+r.setCode(ResultCode.ERROR);
+r.setMsg(&ldquo;失败&rdquo;);
+return r;
+}
+public R msg(String msg){
+this.setMsg(msg);
+return this;
+}
+public R code(long code){
+this.setCode(code);
+return this;
+}
+public R data(String key, Object value){
+this.data.put(key, value);
+return this;
+}
+public R data(Map&lt;String, Object&gt; map){
+this.setData(map);
+return this;
+}
+}</p>
+<p>package com.domestic.commonutils;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+public class ResponseUtil {
+public static void out(HttpServletResponse response, R r) {
+ObjectMapper mapper = new ObjectMapper();
+response.setStatus(HttpStatus.OK.value());
+response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+try {
+mapper.writeValue(response.getWriter(), r);
+} catch (IOException e) {
+e.printStackTrace();
+}
+}
+}</p>
+<p>package com.domestic.commonutils;
+//统一返回结果接口
+public interface ResultCode {
+//自定义返回结果状态码
+public final long SUCCESS = 0;
+public static long ERROR = -1;
+}</p>
+<p>package com.domestic.servicebase.exceptionhandler;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@AllArgsConstructor //生成有参数构造方法
+@NoArgsConstructor  //生成无参数构造
+public class FlightException extends RuntimeException {
+private long code;//状态码
+private String msg;//异常信息
+}</p>
+<p>package com.domestic.servicebase.exceptionhandler;
+//统一异常处理
+//import com.domestic.commonutils.R;
+import com.domestic.commonutils.R;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+@ControllerAdvice
+@Slf4j
+public class GlobalExceptionHandler {
+//指定出现什么异常执行这个方法
+@ExceptionHandler(Exception.class)
+@ResponseBody //为了返回数据
+public R error(Exception e) {
+e.printStackTrace();
+return R.error().msg(&ldquo;执行了全局异常处理..&rdquo;);
+}
+//特定异常
+@ExceptionHandler(ArithmeticException.class)
+@ResponseBody //为了返回数据
+public R error(ArithmeticException e) {
+e.printStackTrace();
+return R.error().msg(&ldquo;执行了ArithmeticException异常处理..&rdquo;);
+}
+//自定义异常
+@ExceptionHandler(FlightException.class)
+@ResponseBody //为了返回数据
+public R error(FlightException e) {
+//通过logback工具将异常写到指定文件中
+log.error(e.getMessage());
+e.printStackTrace();
+return R.error().code(e.getCode()).msg(e.getMsg());
+}
+}</p>
+<p>package com.domestic.servicebase;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CachingConfigurerSupport;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
+import java.time.Duration;
+@EnableCaching //开启缓存
+@Configuration //配置类
+public class RedisConfig extends CachingConfigurerSupport {
+@Bean  //redis模板
+public RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory factory) {
+RedisTemplate&lt;String, Object&gt; template = new RedisTemplate&lt;&gt;();
+RedisSerializer<!-- raw HTML omitted --> redisSerializer = new StringRedisSerializer();
+Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+ObjectMapper om = new ObjectMapper();
+om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+jackson2JsonRedisSerializer.setObjectMapper(om);
+template.setConnectionFactory(factory);
+//key序列化方式
+template.setKeySerializer(redisSerializer);
+//value序列化
+template.setValueSerializer(jackson2JsonRedisSerializer);
+//value hashmap序列化
+template.setHashValueSerializer(jackson2JsonRedisSerializer);
+return template;
+}
+@Bean  //针对缓存的管理
+public CacheManager cacheManager(RedisConnectionFactory factory) {
+RedisSerializer<!-- raw HTML omitted --> redisSerializer = new StringRedisSerializer();
+Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+//解决查询缓存转换异常的问题
+ObjectMapper om = new ObjectMapper();
+om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+jackson2JsonRedisSerializer.setObjectMapper(om);
+// 配置序列化（解决乱码的问题）,过期时间600秒
+RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
+.entryTtl(Duration.ofSeconds(600))
+.serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer))
+.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer))
+.disableCachingNullValues();
+RedisCacheManager cacheManager = RedisCacheManager.builder(factory)
+.cacheDefaults(config)
+.build();
+return cacheManager;
+}
+}</p>
+<p>package com.domestic.servicebase;
+import com.google.common.base.Predicates;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+@Bean
+public Docket webApiConfig(){
+return new Docket(DocumentationType.SWAGGER_2)
+.groupName(&ldquo;webApi&rdquo;)
+.apiInfo(webApiInfo())
+.select()
+.paths(Predicates.not(PathSelectors.regex(&quot;/admin/.<em>&quot;)))
+.paths(Predicates.not(PathSelectors.regex(&quot;/error.</em>&quot;)))
+.build();
+}
+private ApiInfo webApiInfo(){
+return new ApiInfoBuilder()
+.title(&ldquo;飞马API文档&rdquo;)
+.description(&ldquo;本文档描述了国内航班查询与预定系统微服务接口定义&rdquo;)
+.version(&ldquo;1.0&rdquo;)
+.contact(new Contact(&ldquo;Andy&rdquo;, &ldquo;<a href="http://domestic.com">http://domestic.com</a>&rdquo;, &ldquo;<a href="mailto:2360895155@qq.com">2360895155@qq.com</a>&rdquo;))
+.build();
+}
+}</p>
+<p>package com.domestic.gateway.config;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsWebFilter;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+import org.springframework.web.util.pattern.PathPatternParser;
+/**
+* <!-- raw HTML omitted -->
+* 处理跨域
+* <!-- raw HTML omitted -->
+<em>/
+/</em>*
+* description:
+<em>/
+//通过网关处理解决跨域问题
+@Configuration
+public class CorsConfig {
+@Bean
+public CorsWebFilter corsFilter() {
+CorsConfiguration config = new CorsConfiguration();
+config.addAllowedMethod(&quot;</em>&quot;);
+config.addAllowedOrigin(&quot;<em>&quot;);
+config.addAllowedHeader(&quot;</em>&quot;);
+UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(new PathPatternParser());
+source.registerCorsConfiguration(&quot;/**&quot;, config);
+return new CorsWebFilter(source);
+}
+}</p>
+<p>package com.domestic.gateway.filter;
+import com.google.gson.JsonObject;
+import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.core.Ordered;
+import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.http.server.reactive.ServerHttpResponse;
+import org.springframework.stereotype.Component;
+import org.springframework.util.AntPathMatcher;
+import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Mono;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+/**
+* <!-- raw HTML omitted -->
+* 全局Filter，统一处理会员登录与外部不允许访问的服务
+* <!-- raw HTML omitted -->
+*/
+@Component
+public class AuthGlobalFilter implements GlobalFilter, Ordered {
+private AntPathMatcher antPathMatcher = new AntPathMatcher();
+@Override
+public Mono<!-- raw HTML omitted --> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+ServerHttpRequest request = exchange.getRequest();
+String path = request.getURI().getPath();
+//谷粒学院api接口，校验用户必须登录
+if(antPathMatcher.match(&quot;/api/<strong>/auth/</strong>&quot;, path)) {
+List<!-- raw HTML omitted --> tokenList = request.getHeaders().get(&ldquo;token&rdquo;);
+if(null == tokenList) {
+ServerHttpResponse response = exchange.getResponse();
+return out(response);
+} else {
+//        Boolean isCheck = JwtUtils.checkToken(tokenList.get(0));
+//        if(!isCheck) {
+ServerHttpResponse response = exchange.getResponse();
+return out(response);
+//        }
+}
+}
+//内部服务接口，不允许外部访问
+if(antPathMatcher.match(&quot;/<strong>/inner/</strong>&quot;, path)) {
+ServerHttpResponse response = exchange.getResponse();
+return out(response);
+}
+return chain.filter(exchange);
+}
+@Override
+public int getOrder() {
+return 0;
+}
+private Mono<!-- raw HTML omitted --> out(ServerHttpResponse response) {
+JsonObject message = new JsonObject();
+message.addProperty(&ldquo;success&rdquo;, false);
+message.addProperty(&ldquo;code&rdquo;, 28004);
+message.addProperty(&ldquo;data&rdquo;, &ldquo;鉴权失败&rdquo;);
+byte[] bits = message.toString().getBytes(StandardCharsets.UTF_8);
+DataBuffer buffer = response.bufferFactory().wrap(bits);
+//response.setStatusCode(HttpStatus.UNAUTHORIZED);
+//指定编码，否则在浏览器中会中文乱码
+response.getHeaders().add(&ldquo;Content-Type&rdquo;, &ldquo;application/json;charset=UTF-8&rdquo;);
+return response.writeWith(Mono.just(buffer));
+}
+}</p>
+<p>package com.domestic.gateway.handler;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.web.reactive.error.ErrorAttributes;
+import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.codec.ServerCodecConfigurer;
+import org.springframework.web.reactive.result.view.ViewResolver;
+import java.util.Collections;
+import java.util.List;
+/**
+* 覆盖默认的异常处理
+*
+*
+*/
+@Configuration
+@EnableConfigurationProperties({ServerProperties.class, ResourceProperties.class})
+public class ErrorHandlerConfig {
+private final ServerProperties serverProperties;
+private final ApplicationContext applicationContext;
+private final ResourceProperties resourceProperties;
+private final List<!-- raw HTML omitted --> viewResolvers;
+private final ServerCodecConfigurer serverCodecConfigurer;
+public ErrorHandlerConfig(ServerProperties serverProperties,
+ResourceProperties resourceProperties,
+ObjectProvider&lt;List<!-- raw HTML omitted -->&gt; viewResolversProvider,
+ServerCodecConfigurer serverCodecConfigurer,
+ApplicationContext applicationContext) {
+this.serverProperties = serverProperties;
+this.applicationContext = applicationContext;
+this.resourceProperties = resourceProperties;
+this.viewResolvers = viewResolversProvider.getIfAvailable(Collections::emptyList);
+this.serverCodecConfigurer = serverCodecConfigurer;
+}
+@Bean
+@Order(Ordered.HIGHEST_PRECEDENCE)
+public ErrorWebExceptionHandler errorWebExceptionHandler(ErrorAttributes errorAttributes) {
+JsonExceptionHandler exceptionHandler = new JsonExceptionHandler(
+errorAttributes,
+this.resourceProperties,
+this.serverProperties.getError(),
+this.applicationContext);
+exceptionHandler.setViewResolvers(this.viewResolvers);
+exceptionHandler.setMessageWriters(this.serverCodecConfigurer.getWriters());
+exceptionHandler.setMessageReaders(this.serverCodecConfigurer.getReaders());
+return exceptionHandler;
+}
+}</p>
+<p>package com.domestic.gateway.handler;
+import org.springframework.boot.autoconfigure.web.ErrorProperties;
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
+importorg.springframework.boot.autoconfigure.web.reactive.error.DefaultErrorWebExceptionHandler;
+import org.springframework.boot.web.reactive.error.ErrorAttributes;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.reactive.function.server.*;
+import java.util.HashMap;
+import java.util.Map;
+/**
+* 自定义异常处理
+*
+* <!-- raw HTML omitted -->异常时用JSON代替HTML异常信息<!-- raw HTML omitted -->
+*
+*
+<em>/
+public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
+public JsonExceptionHandler(ErrorAttributes errorAttributes, ResourceProperties resourceProperties,
+ErrorProperties errorProperties, ApplicationContext applicationContext) {
+super(errorAttributes, resourceProperties, errorProperties, applicationContext);
+}
+/</em>*
+* 获取异常属性
+<em>/
+@Override
+protected Map&lt;String, Object&gt; getErrorAttributes(ServerRequest request, boolean includeStackTrace) {
+Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+map.put(&ldquo;code&rdquo;, -1);
+map.put(&ldquo;msg&rdquo;, &ldquo;网关失败&rdquo;);
+map.put(&ldquo;data&rdquo;, null);
+return map;
+}
+/</em>*
+* 指定响应处理方法为JSON处理的方法
+* @param errorAttributes
+<em>/
+@Override
+protected RouterFunction<!-- raw HTML omitted --> getRoutingFunction(ErrorAttributes errorAttributes) {
+return RouterFunctions.route(RequestPredicates.all(), this::renderErrorResponse);
+}
+/</em>*
+* 根据code获取对应的HttpStatus
+* @param errorAttributes
+*/
+@Override
+protected int getHttpStatus(Map&lt;String, Object&gt; errorAttributes) {
+return 200;
+}
+}</p>
+<p>package com.domestic.gateway;
+//import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
+@SpringBootApplication
+@EnableDiscoveryClient //nacos注册
+public class ApiGatewayApplication {
+public static void main(String[] args) {
+SpringApplication.run(ApiGatewayApplication.class,args);
+}
+}</p>
+<p># 端口号
+server.port=8222
+# 服务名称
+spring.application.name=service-gateway
+# nacos服务地址
+spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
+# 使服务发现路由
+spring.cloud.gateway.discovery.locator.enabled=true
+# 设置路由id
+spring.cloud.gateway.routes[0].id=service-flight
+# 设置路由的uri lb://nacos注册服务名称
+spring.cloud.gateway.routes[0].uri=lb://service-flight
+# 设置路由断言，代理servicerId为auth-service的/auth/路径
+spring.cloud.gateway.routes[0].predicates[0]= Path=/systemservice/**
+# 配置service-flight服务
+spring.cloud.gateway.routes[1].id=service-ucenter
+spring.cloud.gateway.routes[1].uri=lb://service-ucenter
+spring.cloud.gateway.routes[1].predicates[0]= Path=/systemucenter/**
+# 配置service-msm服务
+spring.cloud.gateway.routes[2].id=service-msm
+spring.cloud.gateway.routes[2].uri=lb://service-msm
+spring.cloud.gateway.routes[2].predicates[0]= Path=/systemmsm/**
+# 配置service-oder服务
+spring.cloud.gateway.routes[3].id=service-oder
+spring.cloud.gateway.routes[3].uri=lb://service-oder
+spring.cloud.gateway.routes[3].predicates[0]= Path=/systemorder/**
+# 配置service-oss服务
+spring.cloud.gateway.routes[4].id=service-oss
+spring.cloud.gateway.routes[4].uri=lb://service-oss
+spring.cloud.gateway.routes[4].predicates[0]= Path=/systemoss/**
+# 配置service-cms服务
+spring.cloud.gateway.routes[5].id=service-cms
+spring.cloud.gateway.routes[5].uri=lb://service-cms
+spring.cloud.gateway.routes[5].predicates[0]= Path=/systemcms/**
+spring.cloud.gateway.routes[6].id=service-flight
+spring.cloud.gateway.routes[6].uri=lb://service-flight
+spring.cloud.gateway.routes[6].predicates[0]= Path=/systemshow/**
+spring.cloud.gateway.routes[7].id=service-oder
+spring.cloud.gateway.routes[7].uri=lb://service-oder
+spring.cloud.gateway.routes[7].predicates[0]= Path=/systemshow2/**</p>
+<p>package com.domestic.flightcms.controller;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.api.ApiController;
+import com.baomidou.mybatisplus.extension.api.R;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.domestic.flightcms.entity.CrmBanner;
+import com.domestic.flightcms.service.CrmBannerService;
+import org.springframework.web.bind.annotation.*;
+import javax.annotation.Resource;
+import java.io.Serializable;
+import java.util.List;
+/**
+* 后台轮播图(CrmBanner)表控制层
+*
+* @author makejava
+* @since 2022-05-26 20:04:16
+<em>/
+@RestController
+@RequestMapping(&quot;/systemcms/banneranmin&quot;)
+//@CrossOrigin  //解决跨域
+public class BannerAdminController extends ApiController {
+/</em>*
+* 服务对象
+<em>/
+@Resource
+private CrmBannerService crmBannerService;
+/</em>*
+* 分页查询所有数据
+*
+* @param page   分页对象
+* @param crmBanner 查询实体
+* @return 所有数据
+<em>/
+@GetMapping(&ldquo;findAll&rdquo;)
+public R selectAll(Page<!-- raw HTML omitted --> page, CrmBanner crmBanner) {
+return success(this.crmBannerService.page(page, new QueryWrapper&lt;&gt;(crmBanner)));
+}
+/</em>*
+* 通过主键查询单条数据
+*
+* @param id 主键
+* @return 单条数据
+<em>/
+@GetMapping(&quot;{id}&quot;)
+public R selectOne(@PathVariable Serializable id) {
+return success(this.crmBannerService.getById(id));
+}
+/</em>*
+* 新增数据
+*
+* @param crmBanner 实体对象
+* @return 新增结果
+<em>/
+@PostMapping(&ldquo;insert&rdquo;)
+public R insert(@RequestBody CrmBanner crmBanner) {
+return success(this.crmBannerService.save(crmBanner));
+}
+/</em>*
+* 修改数据
+*
+* @param crmBanner 实体对象
+* @return 修改结果
+<em>/
+@PutMapping(&ldquo;update&rdquo;)
+public R update(@RequestBody CrmBanner crmBanner) {
+return success(this.crmBannerService.updateById(crmBanner));
+}
+/</em>*
+* 删除数据
+*
+* @param idList 主键结合
+* @return 删除结果
+*/
+@DeleteMapping(&ldquo;delete&rdquo;)
+public R delete(@RequestParam(&ldquo;idList&rdquo;) List<!-- raw HTML omitted --> idList) {
+return success(this.crmBannerService.removeByIds(idList));
+}
+}</p>
+<p>package com.domestic.flightcms.controller;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.domestic.commonutils.R;
+import com.domestic.flightcms.entity.CrmBanner;
+import com.domestic.flightcms.service.CrmBannerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+/**
+* 前台轮播图(CrmBanner)表显示层
+*
+* @author makejava
+* @since 2022-05-26 20:04:16
+*/
+@RestController
+@RequestMapping(&ldquo;systemcms/bannerfront&rdquo;)
+//@CrossOrigin  //解决跨域
+public class BannerFrontController {
+@Autowired
+private CrmBannerService bannerService;
+//查询2条最新发布的banner
+@GetMapping(&ldquo;getAllBanner&rdquo;)
+@Cacheable(key = &ldquo;&lsquo;selectIndexList&rsquo;&quot;,value = &ldquo;banner&rdquo;)//redis缓存
+public R getAllBanner() {
+//根据id进行降序排列，显示排列之后的前两条记录
+QueryWrapper<!-- raw HTML omitted --> wrapper = new QueryWrapper&lt;&gt;(); //创建对象
+wrapper.orderByDesc(&ldquo;id&rdquo;);
+//last方法，拼接sql语句
+wrapper.last(&ldquo;limit 2&rdquo;);
+List<!-- raw HTML omitted --> list = bannerService.list(wrapper);
+return R.ok().data(&ldquo;list&rdquo;,list);
+}
+}</p>
+<p>package com.domestic.flightcms.dao;
+import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+import com.domestic.flightcms.entity.Advert;
+/**
+* (Advert)表数据库访问层
+*
+* @author makejava
+* @since 2022-05-31 08:19:55
+<em>/
+public interface AdvertDao extends BaseMapper<!-- raw HTML omitted --> {
+/</em>*
+* 批量新增数据（MyBatis原生foreach方法）
+*
+* @param entities List<!-- raw HTML omitted --> 实例对象列表
+* @return 影响行数
+<em>/
+int insertBatch(@Param(&ldquo;entities&rdquo;) List<!-- raw HTML omitted --> entities);
+/</em>*
+* 批量新增或按主键更新数据（MyBatis原生foreach方法）
+*
+* @param entities List<!-- raw HTML omitted --> 实例对象列表
+* @return 影响行数
+* @throws org.springframework.jdbc.BadSqlGrammarException 入参是空List的时候会抛SQL语句错误的异常，请自行校验入参
+*/
+int insertOrUpdateBatch(@Param(&ldquo;entities&rdquo;) List<!-- raw HTML omitted --> entities);
+}</p>
+<p>package com.domestic.flightcms.dao;
+import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+import com.domestic.flightcms.entity.CrmBanner;
+/**
+* (CrmBanner)表数据库访问层
+*
+* @author makejava
+* @since 2022-05-26 20:04:17
+<em>/
+public interface CrmBannerDao extends BaseMapper<!-- raw HTML omitted --> {
+/</em>*
+* 批量新增数据（MyBatis原生foreach方法）
+*
+* @param entities List<!-- raw HTML omitted --> 实例对象列表
+* @return 影响行数
+<em>/
+int insertBatch(@Param(&ldquo;entities&rdquo;) List<!-- raw HTML omitted --> entities);
+/</em>*
+* 批量新增或按主键更新数据（MyBatis原生foreach方法）
+*
+* @param entities List<!-- raw HTML omitted --> 实例对象列表
+* @return 影响行数
+* @throws org.springframework.jdbc.BadSqlGrammarException 入参是空List的时候会抛SQL语句错误的异常，请自行校验入参
+*/
+int insertOrUpdateBatch(@Param(&ldquo;entities&rdquo;) List<!-- raw HTML omitted --> entities);
+}</p>
+<p>package com.domestic.flightcms.entity;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.io.Serializable;
+import java.util.Date;
+/**
+* (Advert)表实体类
+*
+* @author makejava
+* @since 2022-05-31 08:19:55
+<em>/
+@SuppressWarnings(&ldquo;serial&rdquo;)
+public class Advert extends Model<!-- raw HTML omitted --> {
+@TableId(type = IdType.UUID)  //实现uuid的自动生成
+private String id;
+//广告名称
+private String advertName;
+//所属公司
+private String company;
+//图片地址
+private String imageUrl;
+//排序
+private Integer sort;
+//发布时间
+private Date creatTime;
+//更新时间
+private Date updateTime;
+public String getId() {
+return id;
+}
+public void setId(String id) {
+this.id = id;
+}
+public String getAdvertName() {
+return advertName;
+}
+public void setAdvertName(String advertName) {
+this.advertName = advertName;
+}
+public String getImageUrl() {
+return imageUrl;
+}
+public void setImageUrl(String imageUrl) {
+this.imageUrl = imageUrl;
+}
+public String getCompany() {
+return company;
+}
+public void setCompany(String company) {
+this.company = company;
+}
+public Integer getSort() {
+return sort;
+}
+public void setSort(Integer sort) {
+this.sort = sort;
+}
+public Date getCreatTime() {
+return creatTime;
+}
+public void setCreatTime(Date creatTime) {
+this.creatTime = creatTime;
+}
+public Date getUpdateTime() {
+return updateTime;
+}
+public void setUpdateTime(Date updateTime) {
+this.updateTime = updateTime;
+}
+/</em>*
+* 获取主键值
+*
+* @return 主键值
+*/
+@Override
+protected Serializable pkVal() {
+return this.id;
+}
+}</p>
+<p>package com.domestic.flightcms.entity;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Date;
+/**
+* (CrmBanner)表实体类
+*
+* @author makejava
+* @since 2022-05-26 20:04:20
+<em>/
+@SuppressWarnings(&ldquo;serial&rdquo;)
+public class CrmBanner extends Model<!-- raw HTML omitted --> {
+@TableId(type = IdType.UUID)  //实现uuid的自动生成
+private String id;
+//标题
+private String title;
+//图片地址
+private String imageUrl;
+//链接地址
+private String linkUrl;
+//排序
+private Integer sort;
+//创建时间
+private Date createTime;
+//更新时间
+private Date updateTime;
+public String getId() {
+return id;
+}
+public void setId(String id) {
+this.id = id;
+}
+public String getTitle() {
+return title;
+}
+public void setTitle(String title) {
+this.title = title;
+}
+public String getImageUrl() {
+return imageUrl;
+}
+public void setImageUrl(String imageUrl) {
+this.imageUrl = imageUrl;
+}
+public String getLinkUrl() {
+return linkUrl;
+}
+public void setLinkUrl(String linkUrl) {
+this.linkUrl = linkUrl;
+}
+public Integer getSort() {
+return sort;
+}
+public void setSort(Integer sort) {
+this.sort = sort;
+}
+public Date getCreateTime() {
+return createTime;
+}
+public void setCreateTime(Date createTime) {
+this.createTime = createTime;
+}
+public Date getUpdateTime() {
+return updateTime;
+}
+public void setUpdateTime(Date updateTime) {
+this.updateTime = updateTime;
+}
+/</em>  public String getCreateTime() {
+return createTime;
+}
+public void setCreateTime(String createTime) {
+this.createTime = createTime;
+}
+public String getUpdateTime() {
+return updateTime;
+}
+public void setUpdateTime(String updateTime) {
+this.updateTime = updateTime;
+}*/
+/**
+* 获取主键值
+*
+* @return 主键值
+*/
+@Override
+protected Serializable pkVal() {
+return this.id;
+}
+}</p>
+<p>package com.domestic.flightcms.service;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.domestic.flightcms.entity.Advert;
+import com.domestic.flightcms.entity.CrmBanner;
+import java.util.List;
+/**
+* (Advert)表服务接口
+*
+* @author makejava
+* @since 2022-05-31 08:19:55
+*/
+public interface AdvertService extends IService<!-- raw HTML omitted --> {
+}</p>
+<p>package com.domestic.flightcms.service;</p>
+<p>import com.baomidou.mybatisplus.extension.service.IService;
+import com.domestic.flightcms.entity.CrmBanner;
+import java.util.List;
+/**
+* (CrmBanner)表服务接口
+*
+* @author makejava
+* @since 2022-05-26 20:04:24
+*/
+public interface CrmBannerService extends IService<!-- raw HTML omitted --> {
+//  List<!-- raw HTML omitted --> selectAllBanner();
+}</p>
+<p>package com.domestic.flightcms.service.impl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.domestic.flightcms.dao.AdvertDao;
+import com.domestic.flightcms.entity.Advert;
+import com.domestic.flightcms.service.AdvertService;
+import org.springframework.stereotype.Service;
+/**
+* (Advert)表服务实现类
+*
+* @author makejava
+* @since 2022-05-31 08:19:55
+*/
+@Service(&ldquo;advertService&rdquo;)
+public class AdvertServiceImpl extends ServiceImpl&lt;AdvertDao, Advert&gt; implements AdvertService {
+}</p>
+<p>package com.domestic.flightcms.service.impl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.domestic.flightcms.dao.CrmBannerDao;
+import com.domestic.flightcms.entity.CrmBanner;
+import com.domestic.flightcms.service.CrmBannerService;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+import java.util.List;
+/**
+* (CrmBanner)表服务实现类
+*
+* @author makejava
+* @since 2022-05-26 20:04:25
+*/
+@Service(&ldquo;crmBannerService&rdquo;)
+public class CrmBannerServiceImpl extends ServiceImpl&lt;CrmBannerDao, CrmBanner&gt; implements CrmBannerService {
+//查询所有banner
+//  @Cacheable(key = &ldquo;&lsquo;selectIndexList&rsquo;&quot;,value = &ldquo;banner&rdquo;)  //将添加此注解的数据放到缓存中
+//  @Override
+//  public List<!-- raw HTML omitted --> selectAllBanner() {
+//    //根据id进行降序排列，显示排列之后的前两条记录
+//    QueryWrapper<!-- raw HTML omitted --> wrapper = new QueryWrapper&lt;&gt;(); //创建对象
+//    wrapper.orderByDesc(&ldquo;id&rdquo;);
+//    //last方法，拼接sql语句
+//    wrapper.last(&ldquo;limit 2&rdquo;);
+//    List<!-- raw HTML omitted --> bannerlist = baseMapper.selectList(wrapper);
+//    return bannerlist;
+//  }
+}</p>
+<p>package com.domestic.flightcms;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
+@SpringBootApplication
+@EnableDiscoveryClient //nacos注册
+@ComponentScan(basePackages = {&ldquo;com.domestic&rdquo;}) //指定扫描位置
+@MapperScan(&ldquo;com.domestic.flightcms.dao&rdquo;)
+public class CmsApplication {
+public static void main(String[] args) {
+SpringApplication.run(CmsApplication.class, args);
+}
+}</p>
+<!-- raw HTML omitted -->
+<p># 服务端口
+server.port=8005
+# 服务名
+spring.application.name=service-cms
+# mysql数据库连接
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/highestplane?serverTimezone=GMT%2B8
+spring.datasource.username=root
+spring.datasource.password=root
+#返回json的全局时间格式
+spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
+spring.jackson.time-zone=GMT+8
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+spring.redis.password=redis
+spring.redis.database= 0
+spring.redis.timeout=1800000
+spring.redis.lettuce.pool.max-active=20
+spring.redis.lettuce.pool.max-wait=-1
+# 最大阻塞等待时间（负数表示没限制）
+spring.redis.lettuce.pool.max-idle=5
+spring.redis.lettuce.pool.min-idle=0
+#mybatis日志
+mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+# nacos服务地址
+spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848</p>
+<p>package com.domestic.flightservice.config;
+import com.baomidou.mybatisplus.core.injector.ISqlInjector;
+//import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+@Configuration
+@MapperScan(&ldquo;com.domestic.flightservice.dao&rdquo;)
+public class FlightConfig {
+/**
+* 逻辑删除插件
+<em>/
+/</em>
+@Bean
+public ISqlInjector sqlInjector() {
+return new LogicSqlInjector();
+}
+<em>/
+/</em>*
+* 分页插件
+<em>/
+@Bean
+public PaginationInterceptor paginationInterceptor() {
+return new PaginationInterceptor();
+}
+/</em>*
+* 性能分析插件
+*/
+@Bean
+@Profile({&ldquo;dev&rdquo;,&ldquo;test&rdquo;})  //设置dev和test环境开启，保证我们的效率
+public PerformanceInterceptor performanceInterceptor() {
+PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
+performanceInterceptor.setMaxTime(200); //设置sql执行的最大时间，超过时间不执行 单位毫秒（ms）
+performanceInterceptor.setFormat(true);//是否开启输出格式化支持
+return performanceInterceptor;
+}
+}</p>
+<p>package com.domestic.flightservice.controller.front;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.extension.api.ApiController;
+import com.baomidou.mybatisplus.extension.api.R;
+//import com.domestic.commonutils.R;
+import com.domestic.flightservice.entity.Flight;
+import com.domestic.flightservice.entity.Ticket;
+import com.domestic.flightservice.service.FlightService;
+import com.domestic.flightservice.service.TicketService;
+import com.domestic.servicebase.exceptionhandler.FlightException;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import javax.annotation.Resource;
+import java.sql.Date;
+import java.util.List;
+@RestController
+@RequestMapping(&quot;/systemshow/flight&rdquo;)
+//@CrossOrigin  //解决跨域问题
+public class FlightShow extends ApiController {
+/**
+* 服务对象
+*/
+@Resource
+private FlightService flightService;
+//日期+起飞城市+目的地城市查询
+@GetMapping(&ldquo;select&rdquo;)
+public R select(Flight flight) {
+List<!-- raw HTML omitted --> list = flightService.select(flight);
+return success(list);
+}
+//航班号+日期查询
+@GetMapping(&ldquo;select2&rdquo;)
+public R select2(Flight flight) {
+//日期
+Date flightDate = flight.getFlightDate();  //用户输入的日期
+//航班号
+String flightNumber = flight.getFlightNumber(); //用户输入的航班号
+//非空判断
+if (StringUtils.isEmpty(flightDate) || StringUtils.isEmpty(flightNumber)) {
+throw new FlightException(-1,&ldquo;请填写完整的查询信息&rdquo;);
+}
+return success(this.flightService.list(new QueryWrapper&lt;&gt;(flight)));
+}
+//航班号+日期查询
+@GetMapping(&ldquo;select3&rdquo;)
+public R select3(String flightnumber,String flightdate) {
+QueryWrapper<!-- raw HTML omitted --> wrapper = new QueryWrapper&lt;&gt;();
+wrapper.eq(&ldquo;flight_number&rdquo;,flightnumber).eq(&ldquo;flight_date&rdquo;,flightdate);
+if (StringUtils.isEmpty(flightdate) || StringUtils.isEmpty(flightnumber)) {
+throw new FlightException(-1,&ldquo;请填写完整的查询信息&rdquo;);
+}
+return success(this.flightService.list(wrapper));
+}
+}</p>
+<p>package com.domestic.flightservice.controller.front;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
+import com.baomidou.mybatisplus.extension.api.ApiController;
+import com.baomidou.mybatisplus.extension.api.R;
+import com.domestic.flightservice.entity.Flight;
+import com.domestic.flightservice.entity.Ticket;
+import com.domestic.flightservice.service.FlightService;
+import com.domestic.flightservice.service.TicketService;
+import org.springframework.web.bind.annotation.<em>;
+import javax.annotation.Resource;
+import java.io.Serializable;
+import java.util.List;
+/**
+* 机票信息(Ticket)表显示层
+*
+* @author makejava
+* @since 2022-05-22 10:21:22
+<em>/
+@RestController
+@RequestMapping(&quot;/systemshow/ticket&rdquo;)
+//@CrossOrigin  //解决跨域问题
+public class TicketShow extends ApiController {
+/</em>*
+* 服务对象
+<em>/
+@Resource
+private TicketService ticketService;
+/</em>*
+* 查询所有数据
+* @param ticket 查询实体
+* @return 所有数据
+<em>/
+@GetMapping(&ldquo;findAll&rdquo;)
+public R selectAll(Ticket ticket) {
+List<!-- raw HTML omitted --> list = ticketService.select(ticket);
+return success(list);
+//    return success(this.ticketService.list(new QueryWrapper&lt;&gt;(ticket)));
+}
+//每调用一次机票数就随之递减
+@GetMapping(&ldquo;reduce/{id}&rdquo;)
+public R reduce(@PathVariable String id) {
+return success(this.ticketService.reduce(id));
+}
+//每调用一次机票数量递增  用于被退票接口远程调用
+@GetMapping(&ldquo;increase/{id}&rdquo;)
+public R increase(@PathVariable String id) {
+return success(this.ticketService.increase(id));
+}
+/</em>  //根据flight_id和cabin_name查询到对应的ticket_id
+@GetMapping(&ldquo;select&rdquo;)
+public R select(String flightid,String cabinname) {
+QueryWrapper<!-- raw HTML omitted --> wrapper = new QueryWrapper&lt;&gt;();
+wrapper.eq(&ldquo;flight_id&rdquo;,flightid).eq(&ldquo;cabin_name&rdquo;,cabinname);
+return success(this.ticketService.list(wrapper));
+//    return success(this.ticketService.list(new QueryWrapper&lt;&gt;(ticket)));
+}</em>/
+}</p>
+<p>package com.domestic.flightservice.service;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.domestic.flightservice.entity.Flight;
+import java.util.List;
+/**
+* 航班信息(Flight)表服务接口
+*
+* @author makejava
+* @since 2022-05-22 10:09:34
+*/
+public interface FlightService extends IService<!-- raw HTML omitted --> {
+List<!-- raw HTML omitted --> select(Flight flight);
+}</p>
+<p>package com.domestic.flightservice.service;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.domestic.flightservice.entity.Ticket;
+import java.util.List;
+/**
+* 机票信息(Ticket)表服务接口
+*
+* @author makejava
+* @since 2022-06-13 08:57:42
+*/
+public interface TicketService extends IService<!-- raw HTML omitted --> {
+List<!-- raw HTML omitted --> select(Ticket ticket);
+Object reduce(String id);
+Object increase(String id);
+}</p>
+<p>package com.domestic.flightservice.service.impl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.domestic.flightservice.dao.FlightDao;
+import com.domestic.flightservice.entity.Flight;
+import com.domestic.flightservice.service.FlightService;
+import com.domestic.servicebase.exceptionhandler.FlightException;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.List;
+/**
+* 航班信息(Flight)表服务实现类
+*
+* @author makejava
+* @since 2022-05-22 10:09:36
+*/
+@Service(&ldquo;flightService&rdquo;)
+public class FlightServiceImpl extends ServiceImpl&lt;FlightDao, Flight&gt; implements FlightService {
+//日期+起飞城市+目的地城市查询
+@Override
+public List<!-- raw HTML omitted --> select(Flight flight) {
+Date flightDate = flight.getFlightDate();
+String startPlace = flight.getStartPlace();
+String endPlace = flight.getEndPlace();
+Integer lowestPrice = flight.getLowestPrice();
+Time startTime = flight.getStartTime();
+Time flightDuration = flight.getFlightDuration();
+//用户输入非空判断
+if (StringUtils.isEmpty(flightDate)
+|| StringUtils.isEmpty(startPlace)
+|| StringUtils.isEmpty(endPlace)){
+throw new FlightException(-1,&ldquo;请输入完整的查询信息！&rdquo;);
+}
+QueryWrapper<!-- raw HTML omitted --> wrapper = new QueryWrapper&lt;&gt;();
+wrapper.eq(&ldquo;flight_date&rdquo;,flightDate);
+wrapper.eq(&ldquo;start_place&rdquo;,startPlace);
+wrapper.eq(&ldquo;end_place&rdquo;,endPlace);
+if (!StringUtils.isEmpty(lowestPrice)){ //前端价格传值则升序排列
+wrapper.orderByAsc(&ldquo;lowest_price&rdquo;);
+}
+if (!StringUtils.isEmpty(flightDuration)){ //前端飞行时长传值则升序排列
+wrapper.orderByAsc(&ldquo;flight_duration&rdquo;);
+}
+if (!StringUtils.isEmpty(startTime)){ //前端起飞时间传值则升序排列
+wrapper.orderByAsc(&ldquo;start_time&rdquo;);
+}
+//根据条件做查询
+List<!-- raw HTML omitted --> date_list = baseMapper.selectList(wrapper);
+//查询数据库中是否有值
+if(date_list.isEmpty()) {
+throw new FlightException(-1,&ldquo;暂无航班！&rdquo;);
+}
+return date_list;
+}
+}</p>
+<p>package com.domestic.flightservice.service.impl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.domestic.flightservice.dao.TicketDao;
+import com.domestic.flightservice.entity.Plane;
+import com.domestic.flightservice.entity.Ticket;
+import com.domestic.flightservice.service.TicketService;
+import com.domestic.servicebase.exceptionhandler.FlightException;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import java.util.List;
+/**
+* 机票信息(Ticket)表服务实现类
+*
+* @author makejava
+* @since 2022-06-13 08:57:42
+*/
+@Service(&ldquo;ticketService&rdquo;)
+public class TicketServiceImpl extends ServiceImpl&lt;TicketDao, Ticket&gt; implements TicketService {
+@Override
+public List<!-- raw HTML omitted --> select(Ticket ticket) {
+String flightId = ticket.getFlightId();
+String cabinType = ticket.getCabinType();
+QueryWrapper<!-- raw HTML omitted --> wrapper = new QueryWrapper&lt;&gt;();
+wrapper.eq(&ldquo;flight_id&rdquo;, flightId);
+if (StringUtils.isEmpty(flightId)){
+throw new FlightException(-1,&ldquo;请给我传所需要查询的航班好，我才能查询该航班的机票信息！&rdquo;);
+}
+if (StringUtils.isEmpty(cabinType)) {  //如果前端没有给cabinType传值，默认显示经济舱
+//前端传航班号+仓位类型  默认先显示经济舱
+wrapper.eq(&ldquo;cabin_type&rdquo;, &ldquo;经济舱&rdquo;);
+}else {
+wrapper.eq(&ldquo;cabin_type&rdquo;,cabinType);
+}
+List<!-- raw HTML omitted --> list = baseMapper.selectList(wrapper);
+return list;
+}
+@Override
+public Object reduce(String id) {
+Ticket ticket = new Ticket();
+Ticket ticket1 = baseMapper.selectById(id);
+Integer ticketAmount = ticket1.getTicketAmount();
+UpdateWrapper<!-- raw HTML omitted --> wrapper = new UpdateWrapper&lt;&gt;();
+if (ticketAmount&gt;0) {
+wrapper.eq(&ldquo;id&rdquo;, id).setSql(&ldquo;ticket_amount=ticket_amount-1&rdquo;);
+}else
+{
+throw new FlightException(-1,&ldquo;机票已售光！&rdquo;);
+}
+int update= baseMapper.update(ticket,wrapper);
+return update;
+}
+@Override
+public Object increase(String id) {
+Ticket ticket = new Ticket();
+Ticket ticket1 = baseMapper.selectById(id);
+Integer ticketAmount = ticket1.getTicketAmount();
+UpdateWrapper<!-- raw HTML omitted --> wrapper = new UpdateWrapper&lt;&gt;();
+if (ticketAmount&gt;0) {
+wrapper.eq(&ldquo;id&rdquo;, id).setSql(&ldquo;ticket_amount=ticket_amount+1&rdquo;);
+}else
+{
+throw new FlightException(-1,&ldquo;机票已售光！&rdquo;);
+}
+int update= baseMapper.update(ticket,wrapper);
+return update;
+}
+}</p>
+<p>package com.domestic.oderservice.client;
+import com.baomidou.mybatisplus.extension.api.R;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+@Component
+@FeignClient(name = &ldquo;service-flight&rdquo;/<em>,fallback = PlaneFileDegradeFeighClient.class</em>/)
+//@FeignClient(&ldquo;service-flight&rdquo;)
+public interface PlaneClient {
+//在查询订单的时候同时查询该订单的航班信息 远程调用
+//  @GetMapping(&quot;{id}&quot;)
+//  public R selectOne(@PathVariable(&ldquo;id&rdquo;) Serializable id);
+//远程调用机票信息，填充ticket_idcabin_type,cabinname
+@GetMapping(&quot;/systemservice/ticket/2/{id}&quot;)
+public R selectOne2(@PathVariable(&ldquo;id&rdquo;) String id);
+//远程调用机票递减的接口
+@GetMapping(&quot;/systemshow/ticket/reduce/{id}&quot;)
+public R reduce(@PathVariable(&ldquo;id&rdquo;) String id);
+//远程调用机票递增接口
+@GetMapping(&quot;/systemshow/ticket/increase/{id}&quot;)
+public R increase(@PathVariable(&ldquo;id&rdquo;) String id);
+//远程调用，根据flight_id和cabin_type查询到对应的ticket_id
+//  @GetMapping(&quot;/systemshow/ticket/select&quot;)
+//  public R select(String flightid,String cabintype);
+}</p>
+<p>package com.domestic.oderservice.client;
+import com.baomidou.mybatisplus.extension.api.R;
+//import com.domestic.flightservice.entity.Ticket;
+import org.springframework.stereotype.Component;
+//兜底方法
+@Component
+public class PlaneFileDegradeFeighClient implements PlaneClient{
+//出错后执行
+/*  @Override
+public R selectOne(String id) {
+return R.failed(&ldquo;查询飞机出错了！&rdquo;);
+}<em>/
+//出错后执行
+/</em>  @Override
+public R selectOne(Serializable id) {
+return null;
+}<em>/
+@Override
+public R selectOne2(String id) {
+return null;
+}
+//出错后执行
+@Override
+public R reduce(String id) {
+return null;
+}
+@Override
+public R increase(String id) {
+return null;
+}
+/</em>  @Override
+public R select(String flightid, String cabintype) {
+return null;
+}*/
+}</p>
+<p>package com.domestic.oderservice.config;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+@Configuration
+@MapperScan(basePackages = {&ldquo;com.domestic.oderservice.dao&rdquo;})
+public class OderConfig {
+/**
+* 逻辑删除插件
+<em>/
+/</em>
+@Bean
+public ISqlInjector sqlInjector() {
+return new LogicSqlInjector();
+}
+<em>/
+/</em>*
+* 分页插件
+<em>/
+@Bean
+public PaginationInterceptor paginationInterceptor() {
+return new PaginationInterceptor();
+}
+/</em>*
+* 性能分析插件
+*/
+@Bean
+@Profile({&ldquo;dev&rdquo;,&ldquo;test&rdquo;})  //设置dev和test环境开启，保证我们的效率
+public PerformanceInterceptor performanceInterceptor() {
+PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
+performanceInterceptor.setMaxTime(200); //设置sql执行的最大时间，超过时间不执行 单位毫秒（ms）
+performanceInterceptor.setFormat(true);//是否开启输出格式化支持
+return performanceInterceptor;
+}
+}</p>
+<p>package com.domestic.oderservice.controller.front;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.extension.api.ApiController;
+import com.baomidou.mybatisplus.extension.api.R;
+import com.domestic.oderservice.client.PlaneClient;
+import com.domestic.oderservice.entity.Oder;
+import com.domestic.oderservice.service.OderService;
+import org.springframework.web.bind.annotation.*;
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+/**
+* 订单信息(Oder)表控制层
+*
+* @author makejava
+* @since 2022-05-24 19:46:49
+<em>/
+@RestController
+@RequestMapping(&quot;/systemshow2/oder&quot;)
+//@CrossOrigin  //跨域
+public class OderShow extends ApiController {
+/</em>*
+* 服务对象
+<em>/
+@Resource
+private OderService oderService;
+//注入Feign远程调用的接口PlaneClient
+@Resource
+private PlaneClient planeClient;
+/</em>*
+* 查询指定用户的所有订单
+* @return 所有数据
+<em>/
+@PostMapping(&ldquo;selectByUserId&rdquo;)
+public R selectAll(@RequestBody String uid) {
+List<!-- raw HTML omitted --> list = oderService.findall(uid);
+List<!-- raw HTML omitted --> r = new ArrayList&lt;&gt;();
+//循环查询到的订单
+for (Oder one : list) {
+String ticketId = one.getTicketId();
+//远程调用通过订单中的机票id远程调用ticketshow中的根据ticketid的查询
+r.add(planeClient.selectOne2(ticketId));
+}
+//    Oder oder = new Oder();
+//    String ticketId = oder.getTicketId();
+//    //远程调用查询ticket机票信息
+//    R r = planeClient.selectOne2(ticketId);
+return success(r);
+}
+@PostMapping(&ldquo;select&rdquo;)
+public R selectOrder(@RequestBody String uid) {
+List<!-- raw HTML omitted --> list = oderService.findall(uid);
+return success(list);
+}
+/</em>*
+* 新增数据
+*
+* @param oder 实体对象
+* @return 新增结果
+<em>/
+@PostMapping(&ldquo;insert&rdquo;)
+public R insert(@RequestBody Oder oder) {
+int insert = oderService.insert(oder);
+String ticketId = oder.getTicketId();
+//远程调用机票递减接口
+R r = planeClient.reduce(ticketId);
+return success(insert);
+//    return success(this.oderService.save(oder));
+}
+/</em>*
+* 改票
+* @return 修改结果
+<em>/
+@PutMapping(&ldquo;update&rdquo;)
+public R update(@RequestBody Oder oder) {
+String ticketId1 = oder.getTicketId();  //用户传的ticketId
+Oder byId = oderService.getById(oder.getId());
+String ticketId2 = byId.getTicketId(); //表中原来的ticketId
+//如果两值相同，即代表用户不需要修改机舱信息
+if (ticketId1.equals(ticketId2)) {
+//不是升舱的话，就是改期，修改飞行日期
+} else {
+//传的值不同则表示用户需要修改机舱信息
+//      oderService.updateBatchById()
+}
+return success(this.oderService.updateById(oder));
+}
+/</em>*
+* 退票
+*
+* @return 删除结果
+*/
+@DeleteMapping(&ldquo;delete&rdquo;)
+public R delete(@RequestParam(&ldquo;id&rdquo;) String id) {
+Oder byId = oderService.getById(id);
+String ticketId = byId.getTicketId();
+//   远程调用机票递增接口
+R increase = planeClient.increase(ticketId);
+boolean b = oderService.removeById(id);
+return success(b);
+}
+}</p>
+<p>package com.domestic.oderservice.service;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.domestic.oderservice.entity.Oder;
+import java.util.List;
+/**
+* 订单信息(Oder)表服务接口
+*
+* @author makejava
+* @since 2022-05-24 19:46:50
+*/
+public interface OderService extends IService<!-- raw HTML omitted --> {
+List<!-- raw HTML omitted --> findall(String uid);
+int insert(Oder oder);
+}</p>
+<p>package com.domestic.oderservice.service.impl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.domestic.oderservice.dao.OderDao;
+import com.domestic.oderservice.entity.Oder;
+import com.domestic.oderservice.service.OderService;
+import com.domestic.servicebase.exceptionhandler.FlightException;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import java.util.List;
+/**
+* 订单信息(Oder)表服务实现类
+*
+* @author makejava
+* @since 2022-05-24 19:46:50
+<em>/
+@Service(&ldquo;oderService&rdquo;)
+public class OderServiceImpl extends ServiceImpl&lt;OderDao, Oder&gt; implements OderService {
+@Override
+public List<!-- raw HTML omitted --> findall(String uid) {
+QueryWrapper<!-- raw HTML omitted --> wrapper = new QueryWrapper&lt;&gt;();
+wrapper.eq(&ldquo;user_id&rdquo;,uid);
+return baseMapper.selectList(wrapper);
+}
+@Override
+public int insert(Oder oder) {
+String phoneNumber = oder.getPhoneNumber();
+String contacts = oder.getContacts();
+//    oder.setInsuranceGl(0);  //隔离津贴 0是未勾选，1是勾选，默认设置未勾选
+//    oder.setInsuranceTg(0);  //退改保险
+//    oder.setInsuranceYw(0);  //延误保险
+if (StringUtils.isEmpty(phoneNumber)){
+throw new FlightException(-1,&ldquo;请输入联系人电话！&rdquo;);
+}
+if (StringUtils.isEmpty(contacts)){
+throw new FlightException(-1,&ldquo;请输入联系人姓名！&rdquo;);
+}
+/</em>    if (StringUtils.isEmpty(oder.getInsuranceGl())){
+oder.setInsuranceGl(0);  //隔离津贴 0是未勾选，1是勾选,空值也是未勾选
+}else
+{
+oder.setInsuranceGl(1);
+}
+if (StringUtils.isEmpty(oder.getInsuranceTg())){
+oder.setInsuranceTg(0);
+}else {
+oder.setInsuranceTg(1);
+}
+if (StringUtils.isEmpty(oder.getInsuranceYw())){
+oder.setInsuranceYw(0);
+}else {
+oder.setInsuranceYw(1);
+}<em>/
+if (!StringUtils.isEmpty(oder.getInsuranceGl())) {
+oder.setInsuranceGl(1);
+}
+if (!StringUtils.isEmpty(oder.getInsuranceTg())){
+oder.setInsuranceTg(1);
+}
+if (!StringUtils.isEmpty(oder.getInsuranceYw())){
+oder.setInsuranceYw(1);
+}
+/</em>    if (!StringUtils.isEmpty(oder.getGetSeat())){
+oder.setGetSeat(oder.getGetSeat()+1);
+}
+if (StringUtils.isEmpty(oder.getFirstBarding())){
+oder.setFirstBarding(0);
+}
+if (StringUtils.isEmpty(oder.getEatWaiting())){
+oder.setEatWaiting(0);
+}*/
+return (baseMapper.insert(oder));
+}
+}</p>
+<p>package com.domestic.oss.service.impl;
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.OSSClientBuilder;
+import com.domestic.oss.service.OssService;
+import com.domestic.oss.utils.ConstantPropertiesUtils;
+import org.joda.time.DateTime;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.InputStream;
+import java.util.UUID;
+@Service
+public class OssServiceImpl implements OssService {
+//上传头像到oss
+@Override
+public String uploadFileAvatar(MultipartFile file) {
+// 工具类获取值
+String endpoint = ConstantPropertiesUtils.END_POIND;
+String accessKeyId = ConstantPropertiesUtils.ACCESS_KEY_ID;
+String accessKeySecret = ConstantPropertiesUtils.ACCESS_KEY_SECRET;
+String bucketName = ConstantPropertiesUtils.BUCKET_NAME;
+try {
+// 创建OSS实例。
+OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+//获取上传文件输入流
+InputStream inputStream = file.getInputStream();
+//获取文件名称
+String fileName = file.getOriginalFilename();
+//1 在文件名称里面添加随机唯一的值（解决上传同一文件时的覆盖问题）
+String uuid = UUID.randomUUID().toString().replaceAll(&quot;-&quot;,&quot;&quot;);
+// yuy76t5rew01.jpg
+fileName = uuid+fileName;
+//2 把文件按照日期进行分类
+//获取当前日期
+String datePath = new DateTime().toString(&ldquo;yyyy/MM/dd&rdquo;);
+//拼接
+fileName = datePath+&quot;/&quot;+fileName;
+//调用oss方法实现上传
+//第一个参数 Bucket名称
+//第二个参数 上传到oss文件路径和文件名称  aa/bb/1.jpg
+//第三个参数 上传文件输入流
+ossClient.putObject(bucketName,fileName , inputStream);
+// 关闭OSSClient。
+ossClient.shutdown();
+//把上传之后文件路径返回
+//需要把上传到阿里云oss路径手动拼接出来
+// <a href="https://edu-guli-1010.oss-cn-beijing.aliyuncs.com/01.jpg">https://edu-guli-1010.oss-cn-beijing.aliyuncs.com/01.jpg</a>
+String url = &ldquo;https://&quot;+bucketName+&rdquo;.&quot;+endpoint+&quot;/&quot;+fileName;
+return url;
+}catch(Exception e) {
+e.printStackTrace();
+return null;
+}
+}
+}</p>
+<p>package com.domestic.msmservice.service.impl;
+import com.alibaba.fastjson.JSONObject;
+import com.aliyuncs.CommonRequest;
+import com.aliyuncs.CommonResponse;
+import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.IAcsClient;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.profile.DefaultProfile;
+import com.domestic.msmservice.service.MsmService;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import java.util.Map;
+@Service
+public class MsmServiceImpl implements MsmService {
+//发送短信的方法
+@Override
+public boolean send(Map&lt;String, Object&gt; param, String phone) {
+if(StringUtils.isEmpty(phone)) return false;
+DefaultProfile profile =
+DefaultProfile.getProfile(&ldquo;default&rdquo;, &ldquo;LTAI5tHjpbwGnytqimduKYgB&rdquo;, &ldquo;8ZZaiQ0AeYQ0gCpP6xwb2DgF57dFwS&rdquo;);
+IAcsClient client = new DefaultAcsClient(profile);
+//设置相关固定的参数
+CommonRequest request = new CommonRequest();
+//request.setProtocol(ProtocolType.HTTPS);
+request.setMethod(MethodType.POST);
+request.setDomain(&ldquo;dysmsapi.aliyuncs.com&rdquo;);
+request.setVersion(&ldquo;2017-05-25&rdquo;);
+request.setAction(&ldquo;SendSms&rdquo;);
+//设置发送相关的参数
+request.putQueryParameter(&ldquo;PhoneNumbers&rdquo;,phone); //手机号
+request.putQueryParameter(&ldquo;SignName&rdquo;,&ldquo;阿里云短信测试&rdquo;); //申请阿里云 签名名称
+request.putQueryParameter(&ldquo;TemplateCode&rdquo;,&ldquo;SMS_154950909&rdquo;); //申请阿里云 模板code
+request.putQueryParameter(&ldquo;TemplateParam&rdquo;, JSONObject.toJSONString(param)); //验证码数据，转换json数据传递
+try {
+//最终发送
+CommonResponse response = client.getCommonResponse(request);
+boolean success = response.getHttpResponse().isSuccess();
+return success;
+}catch(Exception e) {
+e.printStackTrace();
+return false;
+}
+}
+}</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://wlwdada.github.io/" >
+    &copy;  My New Hugo Site 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
