@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on My New Hugo Site</title>
-    <link>https://wlwdada.githun.io/categories/</link>
-    <description>Recent content in Categories on My New Hugo Site</description>
+    <title>Categories on 洪浩沦的博客</title>
+    <link>https://wlwdada.github.io/categories/</link>
+    <description>Recent content in Categories on 洪浩沦的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://wlwdada.githun.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language><atom:link href="https://wlwdada.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

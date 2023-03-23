@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>https://wlwdada.githun.io/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on 洪浩沦的博客</title>
+    <link>https://wlwdada.github.io/posts/</link>
+    <description>Recent content in Posts on 洪浩沦的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 23 Mar 2023 11:10:36 +0800</lastBuildDate><atom:link href="https://wlwdada.githun.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 23 Mar 2023 11:10:36 +0800</lastBuildDate><atom:link href="https://wlwdada.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://wlwdada.githun.io/posts/%E5%9B%BD%E5%86%85%E8%88%AA%E7%8F%AD%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%9C%BA%E7%A5%A8%E9%A2%84%E8%AE%A2%E7%B3%BB%E7%BB%9F_%E8%AE%BA%E6%96%87/</link>
+      <link>https://wlwdada.github.io/posts/%E5%9B%BD%E5%86%85%E8%88%AA%E7%8F%AD%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%9C%BA%E7%A5%A8%E9%A2%84%E8%AE%A2%E7%B3%BB%E7%BB%9F_%E8%AE%BA%E6%96%87/</link>
       <pubDate>Thu, 23 Mar 2023 11:10:36 +0800</pubDate>
       
-      <guid>https://wlwdada.githun.io/posts/%E5%9B%BD%E5%86%85%E8%88%AA%E7%8F%AD%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%9C%BA%E7%A5%A8%E9%A2%84%E8%AE%A2%E7%B3%BB%E7%BB%9F_%E8%AE%BA%E6%96%87/</guid>
+      <guid>https://wlwdada.github.io/posts/%E5%9B%BD%E5%86%85%E8%88%AA%E7%8F%AD%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%9C%BA%E7%A5%A8%E9%A2%84%E8%AE%A2%E7%B3%BB%E7%BB%9F_%E8%AE%BA%E6%96%87/</guid>
       <description>金 华 职 业 技 术 学 院
 J I N H U A P O L Y T E C H N I C
 毕业教学环节成果
@@ -37,29 +37,40 @@ J I N H U A P O L Y T E C H N I C
     </item>
     
     <item>
-      <title>Xiaoxiao</title>
-      <link>https://wlwdada.githun.io/posts/xiaoxiao/</link>
+      <title></title>
+      <link>https://wlwdada.github.io/posts/%E6%B0%B4%E4%BB%99%E8%8A%B1%E6%95%B0/</link>
       <pubDate>Thu, 23 Mar 2023 11:10:36 +0800</pubDate>
       
-      <guid>https://wlwdada.githun.io/posts/xiaoxiao/</guid>
+      <guid>https://wlwdada.github.io/posts/%E6%B0%B4%E4%BB%99%E8%8A%B1%E6%95%B0/</guid>
+      <description>出处：小案例
+正文 输出100~1000之间的所有水仙花数
+初次代码 import java.util.ArrayList; //水仙花数 public class ShuiXian { public static void main(String[] args) { ArrayList&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); for (int i = 100; i &amp;lt; 1000; i++) { list.add(i); } for (Integer l : list) { String s = Integer.toString(l); //100,101,102... char[] c = s.toCharArray(); char a = c[0]; char b = c[1]; char d = c[2]; int aa = (int)a - (int)(&amp;#39;0&amp;#39;);//1 int bb = (int)b - (int)(&amp;#39;0&amp;#39;);//0 int dd = (int)d - (int)(&amp;#39;0&amp;#39;);//0 int ee = Integer.</description>
+    </item>
+    
+    <item>
+      <title>Xiaoxiao</title>
+      <link>https://wlwdada.github.io/posts/xiaoxiao/</link>
+      <pubDate>Thu, 23 Mar 2023 11:10:36 +0800</pubDate>
+      
+      <guid>https://wlwdada.github.io/posts/xiaoxiao/</guid>
       <description>第二次修改测试，红红火火恍恍惚惚和~~~~~~~~~~~~</description>
     </item>
     
     <item>
       <title>Dada</title>
-      <link>https://wlwdada.githun.io/posts/dada/</link>
+      <link>https://wlwdada.github.io/posts/dada/</link>
       <pubDate>Thu, 23 Mar 2023 09:22:53 +0800</pubDate>
       
-      <guid>https://wlwdada.githun.io/posts/dada/</guid>
+      <guid>https://wlwdada.github.io/posts/dada/</guid>
       <description>用时1day+30min&amp;hellip; how are you ? i&amp;rsquo;m fine ,thank you!</description>
     </item>
     
     <item>
       <title>hahha</title>
-      <link>https://wlwdada.githun.io/posts/hahha/</link>
+      <link>https://wlwdada.github.io/posts/hahha/</link>
       <pubDate>Thu, 23 Mar 2023 09:22:53 +0800</pubDate>
       
-      <guid>https://wlwdada.githun.io/posts/hahha/</guid>
+      <guid>https://wlwdada.github.io/posts/hahha/</guid>
       <description>sdaofjasdlkjfas: sdfjlkasdjflk hahahah测试test</description>
     </item>
     
